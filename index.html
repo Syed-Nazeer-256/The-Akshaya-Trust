@@ -1,68 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="aurora">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-        content="Akshaya Charitable Trust — Shakti · Shiksha · Samriddhi. Empowering rural India through education, healthcare, and sustainable livelihoods." />
-    <meta name="theme-color" content="#F5F0EB" />
-    <title>Akshaya Charitable Trust · Shakti · Shiksha · Samriddhi</title>
+        content="Akshaya Charitable Trust is a registered public charitable trust guided by Shakti, Shiksha, and Samriddhi: empowerment, education, and sustained well-being delivered with transparency and continuity." />
+    <meta name="theme-color" content="#f6efe7" />
+    <title>Akshaya Charitable Trust | Shakti · Shiksha · Samriddhi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <!-- PERFORMANCE OPTIMIZED: preload compressed hero image for faster LCP -->
+    <link rel="preload" as="image" href="hero-900.webp" imagesrcset="hero-600.webp 600w, hero-900.webp 900w" imagesizes="(max-width: 860px) 100vw, 50vw" type="image/webp">
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
-        rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap"
+        rel="stylesheet">
     <style>
-        *,
-        *::before,
-        *::after {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            -webkit-font-smoothing: antialiased;
         }
 
         :root {
-            /* ═══ LOGO-EXTRACTED PALETTE ═══ */
-            --maroon: #6B2D2D;
-            --maroon-deep: #4E1F1F;
-            --maroon-light: #8B4545;
-            --maroon-wash: rgba(107, 45, 45, 0.08);
-            --gold: #D4A839;
-            --gold-deep: #B8912E;
-            --gold-light: #E8C15A;
-            --cream: #F5F0EB;
-            --cream-dark: #EDE5DD;
-            --ink: #3B1A1A;
-            --ink-soft: #6B5050;
-            --ink-faint: #9C8585;
-
-            /* LIQUID GLASS — maroon-tinted */
-            --glass-bg: rgba(107, 45, 45, 0.04);
-            --glass-border: rgba(255, 255, 255, 0.50);
-            --glass-blur: 45px;
-            --glass-sat: 200%;
-
+            --page-width: min(1440px, calc(100vw - 40px));
             --radius-pill: 999px;
-            --radius-window: 72px;
-            --radius-card: 44px;
+            --radius-xl: 40px;
+            --radius-2xl: 56px;
+            --radius-3xl: 72px;
+            --nav-height: 78px;
+            --shadow-soft: 0 20px 60px rgba(24, 17, 11, 0.12);
+            --shadow-card: 0 30px 90px rgba(24, 17, 11, 0.14);
+            --shadow-strong: 0 40px 120px rgba(24, 17, 11, 0.18);
+            --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+            --ease-bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --font-sans: 'Manrope', system-ui, sans-serif;
+            --font-display: 'Fraunces', Georgia, serif;
+        }
 
-            --shadow-rest: 0 12px 56px -8px rgba(107, 45, 45, 0.08);
-            --shadow-hover: 0 32px 72px -12px rgba(107, 45, 45, 0.16);
-
-            --ease: cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-            --ease-luxe: cubic-bezier(0.05, 0.7, 0.1, 1);
+        html[data-theme="aurora"] {
+            --bg: #f6efe7;
+            --bg-elevated: rgba(255, 248, 242, 0.52);
+            --bg-strong: rgba(112, 45, 45, 0.1);
+            --surface: rgba(255, 255, 255, 0.44);
+            --surface-strong: rgba(255, 255, 255, 0.6);
+            --line: rgba(255, 255, 255, 0.52);
+            --line-soft: rgba(112, 45, 45, 0.12);
+            --text: #2f1b1a;
+            --text-soft: #6a5651;
+            --text-faint: #8f7a75;
+            --primary: #6f3030;
+            --primary-strong: #4f2020;
+            --secondary: #d8aa43;
+            --secondary-strong: #b8861f;
+            --accent: #e8c7b7;
+            --mesh-1: rgba(220, 177, 145, 0.48);
+            --mesh-2: rgba(214, 170, 67, 0.24);
+            --mesh-3: rgba(111, 48, 48, 0.18);
+            --hero-glow: rgba(255, 255, 255, 0.42);
         }
 
         @media (prefers-reduced-motion: reduce) {
-
             *,
             *::before,
             *::after {
                 animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
 
@@ -72,794 +79,1239 @@
 
         body {
             min-height: 100vh;
-            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-            color: var(--ink);
-            background: var(--cream);
             overflow-x: hidden;
-            line-height: 1.6;
+            font-family: var(--font-sans);
+            background:
+                radial-gradient(circle at 15% 20%, var(--mesh-1), transparent 34%),
+                radial-gradient(circle at 82% 18%, var(--mesh-2), transparent 26%),
+                radial-gradient(circle at 50% 82%, var(--mesh-3), transparent 28%),
+                var(--bg);
+            color: var(--text);
+            transition: background 700ms var(--ease-standard), color 300ms ease;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(120deg, rgba(255, 255, 255, 0.24), transparent 32%),
+                linear-gradient(300deg, rgba(255, 255, 255, 0.14), transparent 28%),
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), transparent 32%);
+            mix-blend-mode: soft-light;
+            opacity: 0.75;
+            z-index: -3;
+            animation: atmospheric-drift 28s ease-in-out infinite alternate;
+            transform: translate3d(calc(var(--parallax-x, 0px) * 0.12), calc(var(--parallax-y, 0px) * 0.12), 0);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.16) 0.9px, transparent 0.9px);
+            background-size: 24px 24px;
+            opacity: 0.25;
+            z-index: -2;
+            transform: translate3d(calc(var(--parallax-x, 0px) * -0.08), calc(var(--parallax-y, 0px) * -0.08), 0);
+        }
+
+        .section,
+        .section-grid,
+        .cinema-section,
+        footer {
+            content-visibility: auto;
+            contain-intrinsic-size: 900px;
+        }
+
+        .hero {
+            content-visibility: visible;
+        }
+
+        @keyframes atmospheric-drift {
+            0% {
+                transform: translate3d(-18px, -10px, 0) scale(1);
+            }
+
+            100% {
+                transform: translate3d(20px, 16px, 0) scale(1.08);
+            }
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        a {
+            font: inherit;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .skip-link {
             position: absolute;
-            top: -100%;
-            left: 16px;
-            background: var(--maroon);
-            color: var(--cream);
-            padding: 12px 24px;
-            border-radius: 0 0 12px 12px;
-            z-index: 9999;
-            font-weight: 700;
-            text-decoration: none;
+            left: 20px;
+            top: -100px;
+            padding: 12px 18px;
+            border-radius: 18px;
+            background: var(--primary);
+            color: #fff;
+            z-index: 1000;
         }
 
         .skip-link:focus {
-            top: 0;
+            top: 12px;
         }
 
-        /* ═══ MESH BACKGROUND — warm maroon/gold tones ═══ */
-        .mesh-bg {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            filter: blur(130px) saturate(1.4);
-            opacity: 0.7;
-        }
-
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            animation: drift 30s infinite alternate ease-in-out;
-        }
-
-        .blob-1 {
-            width: 85vw;
-            height: 85vw;
-            background: #E8D5C4;
-            top: -25%;
-            left: -15%;
-        }
-
-        .blob-2 {
-            width: 75vw;
-            height: 75vw;
-            background: #F0E0D0;
-            bottom: -20%;
-            right: -10%;
-            animation-delay: -7s;
-        }
-
-        .blob-3 {
-            width: 65vw;
-            height: 65vw;
-            background: #D4A83920;
-            top: 15%;
-            left: 35%;
-            animation-delay: -14s;
-        }
-
-        .blob-4 {
-            width: 50vw;
-            height: 50vw;
-            background: #6B2D2D10;
-            bottom: 5%;
-            left: 5%;
-            animation-delay: -4s;
-        }
-
-        @keyframes drift {
-            from {
-                transform: translate(0, 0) scale(1) rotate(0deg);
-            }
-
-            to {
-                transform: translate(90px, 70px) scale(1.08) rotate(40deg);
-            }
-        }
-
-        .page {
-            position: relative;
-            z-index: 10;
-            max-width: 1400px;
+        .page-shell {
+            width: var(--page-width);
             margin: 0 auto;
-            padding: 40px 32px 40px;
+            padding: 24px 0 48px;
+            position: relative;
         }
 
-        /* ═══ LIQUID GLASS ═══ */
+        .page-shell::before,
+        .page-shell::after {
+            content: "";
+            position: fixed;
+            inset: auto;
+            pointer-events: none;
+            border-radius: 999px;
+            filter: blur(68px);
+            z-index: -1;
+            opacity: 0.55;
+        }
+
+        .page-shell::before {
+            width: 320px;
+            height: 320px;
+            top: 12%;
+            right: 6%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 68%);
+            animation: orb-float-a 28s ease-in-out infinite alternate;
+        }
+
+        .page-shell::after {
+            width: 420px;
+            height: 420px;
+            bottom: 8%;
+            left: 4%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 72%);
+            animation: orb-float-b 34s ease-in-out infinite alternate;
+        }
+
+        @keyframes orb-float-a {
+            0% {
+                transform: translate3d(-18px, -12px, 0) scale(0.96);
+            }
+
+            100% {
+                transform: translate3d(24px, 18px, 0) scale(1.08);
+            }
+        }
+
+        @keyframes orb-float-b {
+            0% {
+                transform: translate3d(20px, 8px, 0) scale(1);
+            }
+
+            100% {
+                transform: translate3d(-28px, -20px, 0) scale(1.12);
+            }
+        }
+
         .glass {
-            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-            backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-sat));
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-rest);
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            transform: translate3d(0, 60px, 0) scale(0.96);
-            filter: blur(4px);
-            transform-origin: center bottom;
-            transition: opacity 1.2s var(--ease-luxe), transform 1.2s var(--ease-luxe), filter 0.8s var(--ease-luxe), box-shadow 0.5s var(--ease), border-color 0.5s ease;
-            will-change: transform, opacity;
-            contain: layout style paint;
+            background:
+                radial-gradient(circle at var(--mx, 50%) var(--my, 20%), rgba(255, 255, 255, 0.26), transparent 28%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.12) 24%, rgba(255, 255, 255, 0.04) 54%, transparent 74%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 88%, white 12%), var(--surface));
+            border: 1px solid var(--line);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.42),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+                inset 0 24px 48px rgba(255, 255, 255, 0.06),
+                inset 0 -28px 42px rgba(0, 0, 0, 0.04),
+                0 12px 32px rgba(255, 255, 255, 0.05),
+                var(--shadow-soft);
+            backdrop-filter: blur(30px) saturate(155%);
+            -webkit-backdrop-filter: blur(30px) saturate(155%);
+            transform-style: preserve-3d;
+            isolation: isolate;
+            background-size: 140% 140%, 100% 100%, 100% 100%;
+            animation: pane-breathe 26s ease-in-out infinite alternate;
         }
 
-        .glass.vis {
-            opacity: 1;
-            transform: translate3d(0, 0, 0) scale(1);
-            filter: blur(0);
-        }
-
-        .glass:hover {
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(255, 255, 255, 0.75);
-        }
-
-        .shine {
+        .glass::before {
+            content: "";
             position: absolute;
             inset: 0;
+            background:
+                radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.5), transparent 22%),
+                radial-gradient(circle at 84% 20%, rgba(255, 255, 255, 0.18), transparent 22%),
+                radial-gradient(circle at 50% 120%, rgba(255, 255, 255, 0.08), transparent 40%),
+                linear-gradient(140deg, rgba(255, 255, 255, 0.5), transparent 28%, transparent 70%, rgba(255, 255, 255, 0.2));
+            opacity: 0.9;
             pointer-events: none;
+            z-index: 0;
+            animation: caustic-shift 24s ease-in-out infinite alternate;
+        }
+
+        .glass::after {
+            content: "";
+            position: absolute;
+            inset: 1px;
             border-radius: inherit;
-            background: radial-gradient(ellipse 600px 400px at var(--sx, 50%) var(--sy, 50%), rgba(255, 255, 255, 0.7), transparent 70%);
-            opacity: 0.15;
-            mix-blend-mode: overlay;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.24),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+        }
+
+        .glass > * {
+            position: relative;
             z-index: 1;
-            transition: opacity 0.8s var(--ease-luxe);
+            transform: translateZ(22px);
         }
 
-        .glass:hover .shine {
-            opacity: 0.5;
+        .glass .glass {
+            backdrop-filter: blur(24px) saturate(145%);
+            -webkit-backdrop-filter: blur(24px) saturate(145%);
+            background:
+                radial-gradient(circle at var(--mx, 50%) var(--my, 20%), rgba(255, 255, 255, 0.24), transparent 24%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.1) 32%, rgba(255, 255, 255, 0.04)),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 82%, white 18%), var(--surface));
+            animation-duration: 30s;
         }
 
-        /* ═══ TYPOGRAPHY ═══ */
-        h1,
-        h2,
-        h3 {
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.08;
-            color: var(--maroon-deep);
+        @keyframes pane-breathe {
+            0% {
+                background-position: 0% 0%, 0% 0%, 0% 0%;
+            }
+
+            100% {
+                background-position: 6% 8%, 0% 0%, 0% 0%;
+            }
         }
 
-        h2 {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
-            margin-bottom: 20px;
+        @keyframes caustic-shift {
+            0% {
+                transform: translate3d(-1.5%, -1%, 0) scale(1);
+                opacity: 0.76;
+            }
+
+            50% {
+                transform: translate3d(1%, 1.2%, 0) scale(1.03);
+                opacity: 0.92;
+            }
+
+            100% {
+                transform: translate3d(2%, -1.4%, 0) scale(1.05);
+                opacity: 0.84;
+            }
         }
 
-        p {
-            font-weight: 500;
-            font-size: 1.1rem;
-            color: var(--ink-soft);
+        .glass::selection {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .hover-lift {
+            transition: transform 500ms var(--ease-standard), box-shadow 500ms var(--ease-standard), border-color 400ms ease;
+            transform-style: preserve-3d;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.01) translateZ(0);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.54),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.12),
+                0 20px 50px rgba(255, 255, 255, 0.1),
+                var(--shadow-card);
+            border-color: rgba(255, 255, 255, 0.72);
+        }
+
+        .hover-lift:hover::before {
+            opacity: 1;
+        }
+
+        .section {
+            margin-top: 28px;
+        }
+
+        .section-space {
+            padding: 36px;
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 72px;
+            max-width: 760px;
+            margin-bottom: 28px;
         }
 
-        .section-header p {
-            max-width: 640px;
-            margin: 0 auto;
-        }
-
-        .tag {
-            background: var(--maroon-wash);
-            border: 1px solid rgba(107, 45, 45, 0.12);
-            padding: 6px 18px;
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding: 9px 16px;
             border-radius: 999px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
             font-size: 0.72rem;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            display: inline-flex;
-            margin-bottom: 20px;
-            color: var(--maroon);
+            color: var(--primary);
+            background: var(--bg-strong);
+            border: 1px solid var(--line-soft);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-strong));
+            box-shadow: 0 0 18px rgba(216, 170, 67, 0.55);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+            letter-spacing: -0.04em;
+            line-height: 1.02;
+            color: var(--text);
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 7vw, 7rem);
+        }
+
+        h2 {
+            font-size: clamp(2.25rem, 4vw, 4.4rem);
+        }
+
+        h3 {
+            font-size: clamp(1.45rem, 2vw, 2rem);
+        }
+
+        p {
+            color: var(--text-soft);
+            line-height: 1.75;
+            font-size: 1rem;
+        }
+
+        .lede {
+            font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+        }
+
+        .muted {
+            color: var(--text-faint);
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--secondary-strong), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        /* ═══ NAV ═══ */
-        nav.glass {
+        .nav-wrap {
             position: sticky;
-            top: 28px;
-            z-index: 1000;
-            margin-bottom: 48px;
-            padding: 12px 28px;
-            border-radius: 999px;
+            top: 18px;
+            z-index: 60;
+            padding-top: 4px;
+        }
+
+        .nav {
+            min-height: var(--nav-height);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            opacity: 1;
-            transform: none;
-            filter: none;
+            gap: 24px;
+            border-radius: 999px;
+            padding: 10px 14px 10px 22px;
         }
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.15rem;
+        .brand {
             display: flex;
             align-items: center;
-            gap: 10px;
-            letter-spacing: -0.03em;
-            color: var(--maroon-deep);
+            gap: 14px;
+            min-width: 0;
         }
 
-        .logo-mark {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        .brand-mark {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
             overflow: hidden;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.25);
+            flex: 0 0 auto;
         }
 
-        .logo-mark img {
+        .brand-mark img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
+        .brand-copy {
+            min-width: 0;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .brand-subtitle {
+            font-size: 0.74rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+        }
+
         .nav-links {
             display: flex;
-            gap: 32px;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: var(--maroon);
+            border-radius: 999px;
+            padding: 10px 14px;
+            color: var(--text-soft);
             font-weight: 700;
-            font-size: 0.9rem;
-            opacity: 0.55;
-            transition: 0.3s var(--ease);
+            font-size: 0.92rem;
+            transition: background 250ms ease, color 250ms ease, transform 250ms ease;
         }
 
         .nav-links a:hover {
-            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .btn {
-            border-radius: var(--radius-pill);
-            padding: 13px 32px;
-            font-weight: 800;
-            font-size: 0.95rem;
             border: 0;
-            cursor: pointer;
+            border-radius: var(--radius-pill);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.6s var(--ease-luxe);
-            z-index: 2;
-            font-family: inherit;
-            position: relative;
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            opacity: 0;
-            box-shadow: 0 0 28px rgba(212, 168, 57, 0.35);
-            transition: opacity 0.6s var(--ease-luxe);
-        }
-
-        .btn:hover::after {
-            opacity: 1;
-        }
-
-        .btn-primary {
-            background: var(--maroon);
-            color: var(--cream);
-            box-shadow: 0 16px 40px rgba(107, 45, 45, 0.2);
-        }
-
-        .btn-primary:hover {
-            background: var(--maroon-deep);
-            transform: translateY(-5px) scale(1.04);
-            box-shadow: 0 28px 64px rgba(107, 45, 45, 0.3);
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: var(--maroon-deep);
-            box-shadow: 0 16px 40px rgba(212, 168, 57, 0.2);
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 22px;
             font-weight: 800;
+            letter-spacing: -0.02em;
+            cursor: pointer;
+            transition: transform 300ms var(--ease-bouncy), box-shadow 300ms var(--ease-standard), background 300ms ease, color 300ms ease;
         }
 
-        .btn-gold:hover {
-            background: var(--gold-deep);
-            transform: translateY(-5px) scale(1.04);
-        }
-
-        .btn-ghost {
-            background: rgba(107, 45, 45, 0.06);
-            color: var(--maroon);
-            border: 1px solid rgba(107, 45, 45, 0.15);
-        }
-
-        .btn-ghost:hover {
-            background: rgba(107, 45, 45, 0.12);
+        .btn:hover {
             transform: translateY(-3px);
         }
 
-        /* ═══ HERO ═══ */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 85vh;
-            margin-bottom: 100px;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+            color: #fff;
+            box-shadow: 0 20px 40px rgba(71, 34, 34, 0.26);
         }
 
-        .hero-content.glass {
-            border-radius: var(--radius-window);
-            padding: 80px 96px;
-            text-align: center;
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-strong));
+            color: #261815;
+            box-shadow: 0 20px 40px rgba(216, 170, 67, 0.24);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.18);
+            color: var(--text);
+            border: 1px solid var(--line-soft);
+        }
+
+        .btn-block {
             width: 100%;
         }
 
-        .hero-title {
-            font-size: clamp(3.2rem, 6vw, 5.5rem);
-            margin-bottom: 28px;
-            color: var(--maroon-deep);
-        }
-
-        .hero-body {
-            font-size: 1.35rem;
-            max-width: 720px;
-            margin: 0 auto 44px;
-            line-height: 1.7;
-        }
-
-        .hero-tagline {
-            font-family: 'EB Garamond', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 16px;
-        }
-
-        /* ═══ TRUST STRIP ═══ */
-        .trust-strip {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            padding: 32px 40px;
-            border-radius: 40px;
-            font-weight: 800;
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--maroon-light);
-        }
-
-        .trust-strip .dot {
-            opacity: 0.25;
-        }
-
-        /* ═══ IMPACT ═══ */
-        .impact-row {
+        .hero {
+            min-height: calc(100vh - 64px);
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .hero-card {
+            border-radius: var(--radius-3xl);
+            padding: 42px;
+            min-height: 720px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            isolation: isolate;
+            background:
+                radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.26), transparent 24%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.06) 42%, transparent 72%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 78%, white 22%), var(--surface));
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            inset: auto 14% -12% 14%;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--hero-glow), transparent 64%);
+            z-index: -1;
+            filter: blur(26px);
+        }
+
+        .hero-intro {
+            max-width: 760px;
+        }
+
+        .hero-copy {
+            margin-top: 22px;
+            max-width: 720px;
+        }
+
+        .hero-actions,
+        .mini-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .metric-chip {
+            padding: 18px;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+            border: 1px solid rgba(255, 255, 255, 0.34);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.32),
+                0 14px 28px rgba(255, 255, 255, 0.04);
+        }
+
+        .metric-chip strong {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--text);
+        }
+
+        .hero-side {
+            display: grid;
             gap: 24px;
         }
 
-        .impact-card {
-            padding: 48px 24px;
-            border-radius: var(--radius-card);
-            text-align: center;
+        .hero-visual {
+            border-radius: var(--radius-3xl);
+            padding: 18px;
+            min-height: 430px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background:
+                radial-gradient(circle at 75% 18%, rgba(255, 255, 255, 0.2), transparent 20%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.06) 48%, transparent 78%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 76%, white 24%), var(--surface));
         }
 
-        .impact-num {
-            font-family: 'EB Garamond', serif;
-            font-size: 4.2rem;
-            font-weight: 600;
+        .hero-media {
+            position: relative;
+            flex: 1;
+            min-height: 320px;
+            border-radius: 34px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.08));
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.08);
+            transition: transform 1.1s var(--ease-standard);
+        }
+
+        .hero-visual:hover .hero-media img {
+            transform: scale(1.14);
+        }
+
+        .hero-floating,
+        .floating-card,
+        .program-card,
+        .story-card,
+        .impact-card,
+        .tier,
+        .faq-item,
+        .support-card,
+        .governance-card,
+        .contact-card {
+            border-radius: var(--radius-xl);
+        }
+
+        .hero-floating {
+            padding: 22px;
+            display: grid;
+            gap: 16px;
+            background:
+                radial-gradient(circle at 22% 12%, rgba(255, 255, 255, 0.22), transparent 20%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06) 48%, transparent 82%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 74%, white 26%), var(--surface));
+        }
+
+        .floating-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .section-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .proof-grid {
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: stretch;
+        }
+
+        .impact-grid,
+        .program-grid,
+        .stories-grid,
+        .support-grid,
+        .governance-grid,
+        .contact-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .impact-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        #impact {
+            background:
+                radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.18), transparent 20%),
+                radial-gradient(circle at 80% 24%, rgba(255, 255, 255, 0.1), transparent 22%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05) 42%, transparent 72%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 72%, white 28%), var(--surface));
+        }
+
+        .impact-card,
+        .support-card,
+        .governance-card,
+        .contact-card,
+        .story-card,
+        .faq-item,
+        .tier,
+        .program-card,
+        .floating-card {
+            padding: 24px;
+        }
+        .impact-value {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4vw, 4rem);
             line-height: 1;
-            margin-bottom: 8px;
-            color: var(--maroon);
+            margin-bottom: 10px;
+            color: var(--primary);
         }
 
         .impact-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-faint);
             font-weight: 800;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--ink-faint);
         }
 
-        /* ═══ PILLARS ═══ */
-        .pillars-grid {
+        .support-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .support-card h3,
+        .governance-card h3,
+        .program-card h3,
+        .story-card h3,
+        .contact-card h3,
+        .tier h3,
+        .faq-item h3 {
+            margin-bottom: 12px;
+        }
+
+        .support-list,
+        .governance-list,
+        .tier-list,
+        .contact-list {
+            list-style: none;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            gap: 10px;
+            margin-top: 18px;
         }
 
-        .pillar {
-            border-radius: 56px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pillar-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
+        .support-list li,
+        .governance-list li,
+        .tier-list li,
+        .contact-list li {
             position: relative;
-            z-index: 0;
-            transition: transform 1.2s var(--ease-luxe);
+            padding-left: 18px;
+            color: var(--text-soft);
         }
 
-        .pillar:hover .pillar-img {
-            transform: scale(1.06);
+        .support-list li::before,
+        .governance-list li::before,
+        .tier-list li::before,
+        .contact-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.8em;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-strong));
         }
 
-        .pillar-content {
-            padding: 40px 36px;
-            flex: 1;
-        }
-
-        .pillar-title {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-            color: var(--maroon-deep);
-        }
-
-        .pillar-body {
-            font-size: 1rem;
-            line-height: 1.75;
-        }
-
-        .pillar-tag {
-            font-family: 'EB Garamond', serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 12px;
-        }
-
-        /* ═══ ABOUT ═══ */
-        .about-window {
-            border-radius: var(--radius-window);
-            padding: 80px;
+        .proof-board {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 64px;
-            align-items: center;
+            gap: 18px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .about-text {
-            font-size: 1.25rem;
-            line-height: 1.85;
-            color: var(--ink-soft);
-        }
-
-        .mini-card.glass {
+        .proof-panel {
             padding: 28px;
-            border-radius: 28px;
+            border-radius: var(--radius-2xl);
         }
 
-        .mini-card h4 {
-            font-size: 1rem;
-            margin-bottom: 6px;
-            color: var(--maroon);
+        .program-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
-        .mini-card p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* ═══ TESTIMONIALS ═══ */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .testimonial {
-            padding: 48px 36px;
-            border-radius: 48px;
+        .program-card {
+            min-height: 480px;
             display: flex;
             flex-direction: column;
+            gap: 18px;
+            background:
+                radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.18), transparent 18%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06) 42%, transparent 76%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 76%, white 24%), var(--surface));
+        }
+
+        .program-media {
+            position: relative;
+            overflow: hidden;
+            border-radius: 28px;
+            min-height: 220px;
+        }
+
+        .program-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.1s var(--ease-standard), filter 1.1s var(--ease-standard);
+        }
+
+        .program-card:hover .program-media img {
+            transform: scale(1.08);
+            filter: saturate(1.05) contrast(1.02);
+        }
+
+        .program-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.1));
+            border: 1px solid var(--line-soft);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-soft);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+        }
+
+        .cinema-section {
+            min-height: 240vh;
+            position: relative;
+        }
+
+        .cinema-stage {
+            position: sticky;
+            top: 96px;
+            min-height: calc(100vh - 120px);
+            border-radius: var(--radius-3xl);
+            overflow: hidden;
+            padding: 26px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            background:
+                radial-gradient(circle at 14% 14%, rgba(255, 255, 255, 0.2), transparent 18%),
+                radial-gradient(circle at 84% 22%, rgba(255, 255, 255, 0.12), transparent 18%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04) 44%, transparent 72%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 74%, white 26%), var(--surface));
+        }
+
+        .cinema-visual {
+            position: relative;
+            border-radius: 34px;
+            overflow: hidden;
+            min-height: 560px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .cinema-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: scale(1.08);
+            transition: opacity 550ms ease, transform 900ms var(--ease-standard);
+        }
+
+        .cinema-layer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cinema-layer.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .cinema-overlay {
+            position: absolute;
+            inset: auto 24px 24px 24px;
+            display: grid;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .play-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            width: fit-content;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(17, 17, 17, 0.28);
+            color: #fff;
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .play-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 0 16px rgba(255, 255, 255, 0.8);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.4);
+                opacity: 1;
+            }
+        }
+
+        .cinema-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             gap: 20px;
         }
 
-        .testimonial-quote {
-            font-family: 'EB Garamond', serif;
-            font-size: 1.35rem;
-            font-style: italic;
-            line-height: 1.7;
-            color: var(--ink);
-            flex: 1;
+        .cinema-steps {
+            display: grid;
+            gap: 14px;
         }
 
-        .testimonial-author {
+        .cinema-step {
+            padding: 18px 20px;
+            border-radius: 24px;
+            border: 1px solid var(--line-soft);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.22),
+                0 12px 32px rgba(255, 255, 255, 0.03);
+            transition: transform 350ms var(--ease-standard), background 350ms ease, border-color 350ms ease;
+        }
+
+        .cinema-step.active {
+            transform: translateX(8px);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.12));
+            border-color: rgba(255, 255, 255, 0.34);
+        }
+
+        .stories-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .story-card {
+            min-height: 340px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px;
+            background:
+                radial-gradient(circle at 82% 14%, rgba(255, 255, 255, 0.18), transparent 18%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05) 40%, transparent 72%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 74%, white 26%), var(--surface));
+        }
+
+        .story-quote {
+            font-size: 1.08rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .story-author {
             display: flex;
             align-items: center;
             gap: 14px;
         }
 
-        .testimonial-avatar {
-            width: 48px;
-            height: 48px;
+        .story-avatar {
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--maroon), var(--gold));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            color: var(--cream);
-            font-size: 1.1rem;
-        }
-
-        .testimonial-name {
-            font-weight: 800;
-            font-size: 0.95rem;
-            color: var(--maroon-deep);
-        }
-
-        .testimonial-role {
-            font-size: 0.82rem;
-            color: var(--ink-faint);
-            font-weight: 600;
-        }
-
-        /* ═══ TIMELINE AUTO-SCROLL ═══ */
-        .timeline-viewport {
-            overflow: hidden;
-            position: relative;
-            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-            mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
-            padding: 8px 0;
-        }
-
-        .timeline-viewport::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            z-index: 5;
-            pointer-events: none;
-            background-image:
-                radial-gradient(1.5px 1.5px at 12% 25%, var(--gold-light) 50%, transparent 50%),
-                radial-gradient(1px 1px at 30% 60%, var(--gold) 50%, transparent 50%),
-                radial-gradient(1.8px 1.8px at 50% 15%, rgba(255, 255, 255, 0.85) 50%, transparent 50%),
-                radial-gradient(1.2px 1.2px at 70% 50%, var(--gold-light) 50%, transparent 50%),
-                radial-gradient(1px 1px at 85% 30%, rgba(255, 255, 255, 0.75) 50%, transparent 50%),
-                radial-gradient(1.5px 1.5px at 20% 75%, var(--gold) 50%, transparent 50%),
-                radial-gradient(1.3px 1.3px at 60% 80%, rgba(255, 255, 255, 0.8) 50%, transparent 50%),
-                radial-gradient(1px 1px at 90% 70%, var(--gold-light) 50%, transparent 50%);
-            background-size: 250px 180px;
-            animation: glitter-shimmer 4s ease-in-out infinite;
-            will-change: opacity;
-        }
-
-        @keyframes glitter-shimmer {
-
-            0%,
-            100% {
-                opacity: 0.35;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
-        }
-
-        .timeline-track {
-            display: flex;
-            gap: 28px;
-            width: max-content;
-            animation: marquee 35s linear infinite;
-        }
-
-        .timeline-viewport:hover .timeline-track {
-            animation-play-state: paused;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .timeline-card {
-            min-width: 300px;
-            max-width: 320px;
-            padding: 44px 36px;
-            border-radius: 44px;
-            flex-shrink: 0;
-            opacity: 1 !important;
-            transform: none !important;
-            filter: none !important;
-        }
-
-        .timeline-year {
-            font-family: 'EB Garamond', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 14px;
-            background: linear-gradient(135deg, var(--maroon), var(--gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .timeline-event {
-            font-size: 1rem;
-            line-height: 1.75;
-        }
-
-        /* ═══ DONATION TIERS ═══ */
-        .tiers-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            place-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
         }
 
         .tier {
-            padding: 48px 36px;
-            border-radius: 48px;
-            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
+            min-height: 420px;
+            background:
+                radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.18), transparent 16%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05) 42%, transparent 72%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 74%, white 26%), var(--surface));
         }
 
         .tier.featured {
-            border: 2px solid rgba(212, 168, 57, 0.4);
+            position: relative;
+            background: linear-gradient(160deg, rgba(255, 248, 235, 0.72), rgba(255, 255, 255, 0.44));
+            border: 1px solid rgba(216, 170, 67, 0.4);
+        }
+
+        .tier-kicker {
+            display: inline-flex;
+            width: fit-content;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(216, 170, 67, 0.18);
+            color: var(--secondary-strong);
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 800;
         }
 
         .tier-price {
-            font-family: 'EB Garamond', serif;
-            font-size: 3.2rem;
-            font-weight: 600;
-            color: var(--maroon);
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 4vw, 4rem);
+            line-height: 1;
         }
 
         .tier-price span {
-            font-size: 1.1rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            color: var(--ink-faint);
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text-faint);
+            margin-left: 8px;
         }
 
-        .tier-name {
-            font-weight: 800;
-            font-size: 1.3rem;
-            color: var(--maroon-deep);
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
         }
 
-        .tier-features {
+        .faq-item summary {
             list-style: none;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--ink-soft);
-        }
-
-        .tier-features li::before {
-            content: "✓ ";
-            color: var(--gold);
+            cursor: pointer;
             font-weight: 800;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
         }
 
-        /* ═══ CTA ═══ */
-        .cta-box {
-            border-radius: var(--radius-window);
-            padding: 80px 64px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 28px;
+        .faq-item summary::-webkit-details-marker {
+            display: none;
         }
 
-        /* ═══ FOOTER ═══ */
-        footer.glass {
-            margin-top: 48px;
-            padding: 64px 40px;
-            border-radius: var(--radius-window);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
+        .faq-item p {
+            margin-top: 14px;
+        }
+
+        #giving {
+            background:
+                radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.18), transparent 18%),
+                radial-gradient(circle at 84% 20%, rgba(255, 255, 255, 0.1), transparent 18%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.04) 42%, transparent 76%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 72%, white 28%), var(--surface));
+        }
+
+        .contact-grid {
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: stretch;
+        }
+
+        .contact-card {
+            min-height: 100%;
+            background:
+                radial-gradient(circle at 14% 14%, rgba(255, 255, 255, 0.2), transparent 18%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05) 44%, transparent 74%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 76%, white 24%), var(--surface));
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .field label {
+            font-weight: 700;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid var(--line-soft);
+            background: rgba(255, 255, 255, 0.18);
+            color: var(--text);
+            padding: 14px 16px;
+            outline: none;
+            transition: border-color 250ms ease, background 250ms ease, box-shadow 250ms ease;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            border-color: rgba(216, 170, 67, 0.6);
+            background: rgba(255, 255, 255, 0.24);
+            box-shadow: 0 0 0 4px rgba(216, 170, 67, 0.12);
+        }
+
+        .field textarea {
+            min-height: 148px;
+            resize: vertical;
+        }
+
+        .footer {
+            margin-top: 28px;
+            border-radius: var(--radius-3xl);
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 24px;
             align-items: center;
-            gap: 32px;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.2), transparent 18%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05) 40%, transparent 72%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 76%, white 24%), var(--surface));
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 40px;
             flex-wrap: wrap;
+            gap: 10px;
         }
 
         .footer-links a {
-            text-decoration: none;
-            color: var(--ink-soft);
+            padding: 10px 14px;
+            border-radius: 999px;
+            color: var(--text-soft);
             font-weight: 700;
-            font-size: 0.88rem;
-            transition: 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--maroon);
+            background: rgba(255, 255, 255, 0.18);
+            color: var(--text);
         }
 
-        .footer-legal {
-            opacity: 0.7;
-            font-weight: 700;
-            font-size: 0.88rem;
-            color: var(--ink-soft);
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(36px) scale(0.98);
+            filter: blur(6px);
+            transition: opacity 900ms var(--ease-standard), transform 900ms var(--ease-standard), filter 650ms ease;
         }
 
-        .sections {
-            display: flex;
-            flex-direction: column;
-            gap: 120px;
+        [data-reveal].is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
         }
 
-        .stack {
-            display: flex;
-            flex-direction: column;
-        }
+        @media (max-width: 1200px) {
 
-        .gap-md {
-            gap: 24px;
-        }
-
-        /* ═══ RESPONSIVE ═══ */
-        @media (max-width:1100px) {
-            .about-window {
+            .hero,
+            .proof-grid,
+            .cinema-stage,
+            .contact-grid {
                 grid-template-columns: 1fr;
             }
 
-            .pillars-grid,
-            .testimonials-grid,
-            .tiers-grid {
-                grid-template-columns: 1fr 1fr;
+            .impact-grid,
+            .support-grid,
+            .program-grid,
+            .stories-grid,
+            .tier-grid,
+            .faq-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .impact-row {
-                grid-template-columns: 1fr 1fr;
+            .footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+            }
+
+            .proof-board {
+                grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width:768px) {
+        @media (max-width: 860px) {
+            :root {
+                --page-width: min(100vw - 20px, 1440px);
+            }
 
-            .pillars-grid,
-            .testimonials-grid,
-            .tiers-grid,
-            .impact-row {
+            .page-shell {
+                padding-top: 14px;
+            }
+
+            .nav {
+                border-radius: 34px;
+                padding: 14px;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links,
+            .nav-actions {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .hero-card,
+            .hero-visual,
+            .hero-floating,
+            .cinema-stage,
+            .footer,
+            .section-space {
+                padding: 24px;
+            }
+
+            .hero-card {
+                min-height: auto;
+            }
+
+            .hero-metrics,
+            .impact-grid,
+            .support-grid,
+            .program-grid,
+            .stories-grid,
+            .tier-grid,
+            .faq-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero-content.glass,
-            .about-window,
-            .cta-box {
-                padding: 48px 28px;
-                border-radius: 48px;
+            .field-row {
+                grid-template-columns: 1fr;
             }
 
-            nav.glass {
-                padding: 10px 16px;
-            }
-
-            .nav-links {
-                display: none;
+            .brand-title {
+                white-space: normal;
             }
         }
     </style>
@@ -868,457 +1320,609 @@
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
 
-    <div class="mesh-bg" aria-hidden="true">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="blob blob-4"></div>
-    </div>
-
-    <div class="page">
-        <nav class="glass" role="navigation" aria-label="Main navigation">
-            <div class="shine"></div>
-            <div class="logo">
-                <div class="logo-mark"><img src="Logo.jpeg" alt="Akshaya Charitable Trust logo" width="48" height="48"
-                        loading="eager"></div>
-                Akshaya Charitable Trust
-            </div>
-            <div class="nav-links">
-                <a href="#pillars">Pillars</a>
-                <a href="#about">About</a>
-                <a href="#impact">Impact</a>
-                <a href="#testimonials">Voices</a>
-                <a href="#give">Give</a>
-            </div>
-            <button type="button" class="btn btn-primary">Donate Now</button>
-        </nav>
-
-        <main id="main" class="sections">
-            <!-- ═══ HERO ═══ -->
-            <section class="hero" aria-label="Hero">
-                <div class="hero-content glass" style="transition-delay:.12s">
-                    <div class="shine"></div>
-                    <div class="hero-tagline">Shakti · Shiksha · Samriddhi</div>
-                    <div class="tag">Strength · Education · Prosperity</div>
-                    <h1 class="hero-title">Igniting the <span class="gradient-text">Flame</span> of Infinite Hope.</h1>
-                    <p class="hero-body">For 15 years, Akshaya Charitable Trust has empowered 320+ villages across rural
-                        India — transforming lives through precision-led education, surgical healthcare, and
-                        climate-resilient farming cooperatives.</p>
-                    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
-                        <button type="button" class="btn btn-primary" style="padding:20px 48px">Start Giving</button>
-                        <button type="button" class="btn btn-gold" style="padding:20px 48px">View Annual Report</button>
+    <div class="page-shell">
+        <div class="nav-wrap">
+            <nav class="nav glass" aria-label="Main navigation">
+                <div class="brand">
+                    <div class="brand-mark"><img src="logo-96.webp" srcset="logo-96.webp 96w, logo-160.webp 160w" sizes="54px" alt="Akshaya Charitable Trust logo" width="54" height="54" decoding="async"></div>
+                    <div class="brand-copy">
+                        <div class="brand-title">Akshaya Charitable Trust</div>
+                        <div class="brand-subtitle">Shakti · Shiksha · Samriddhi</div>
                     </div>
                 </div>
-            </section>
-
-            <!-- ═══ TRUST STRIP ═══ -->
-            <section class="trust-strip glass" style="margin-top:-40px;transition-delay:.1s" aria-label="Credentials">
-                <div class="shine"></div>
-                <span>ISO 9001:2015</span>
-                <span class="dot">●</span>
-                <span>80G Tax Benefit</span>
-                <span class="dot">●</span>
-                <span>FCRA Compliant</span>
-                <span class="dot">●</span>
-                <span>15+ Years</span>
-                <span class="dot">●</span>
-                <span>A+ GuideStar</span>
-            </section>
-
-            <!-- ═══ IMPACT ═══ -->
-            <section id="impact" aria-label="Impact statistics">
-                <div class="section-header">
-                    <div class="tag">verified impact</div>
-                    <h2>Numbers That Breathe.</h2>
-                    <p>Every metric is independently audited. Every life is individually documented.</p>
+                <div class="nav-links">
+                    <a href="#impact">Impact</a>
+                    <a href="#programs">Programs</a>
+                    <a href="#cinema">Journey</a>
+                    <a href="#giving">Give</a>
+                    <a href="#contact">Contact</a>
                 </div>
-                <div class="impact-row">
-                    <div class="impact-card glass" style="transition-delay:.05s">
-                        <div class="shine"></div>
-                        <div class="impact-num" data-target="8420">0</div>
-                        <div class="impact-label">Children Sponsored</div>
-                    </div>
-                    <div class="impact-card glass" style="transition-delay:.12s">
-                        <div class="shine"></div>
-                        <div class="impact-num" data-target="3620">0</div>
-                        <div class="impact-label">Lives Saved</div>
-                    </div>
-                    <div class="impact-card glass" style="transition-delay:.20s">
-                        <div class="shine"></div>
-                        <div class="impact-num" data-target="320">0</div>
-                        <div class="impact-label">Villages Transformed</div>
-                    </div>
-                    <div class="impact-card glass" style="transition-delay:.28s">
-                        <div class="shine"></div>
-                        <div class="impact-num" data-target="96">0</div>
-                        <div class="impact-label">Fund Efficiency %</div>
-                    </div>
+                <div class="nav-actions">
+                    <a class="btn btn-primary" href="#giving">Support the Trust</a>
                 </div>
-            </section>
+            </nav>
+        </div>
 
-            <!-- ═══ THREE PILLARS ═══ -->
-            <section id="pillars" aria-label="Three Pillars">
-                <div class="section-header">
-                    <div class="tag">shakti · shiksha · samriddhi</div>
-                    <h2>Three Pillars of Hope.</h2>
-                    <p>Strength, Education, and Prosperity — the foundations upon which Akshaya builds futures.</p>
-                </div>
-                <div class="pillars-grid">
-                    <article class="pillar glass" style="transition-delay:.08s">
-                        <div class="shine"></div>
-                        <img class="pillar-img" src="hero.png" alt="Rural children studying in a sunlit classroom"
-                            width="400" height="220" loading="lazy">
-                        <div class="pillar-content">
-                            <div class="pillar-tag">Shiksha — Education</div>
-                            <h3 class="pillar-title">Learning</h3>
-                            <p class="pillar-body">Full-spectrum digital literacy and academic scholarships for 8,420
-                                first-generation rural students. We cover fees, books, uniforms, meals, and mentorship
-                                from Class 1 through graduation.</p>
-                        </div>
-                    </article>
-                    <article class="pillar glass" style="transition-delay:.20s">
-                        <div class="shine"></div>
-                        <img class="pillar-img" src="healthcare.png" alt="Mobile medical clinic serving a rural village"
-                            width="400" height="220" loading="lazy">
-                        <div class="pillar-content">
-                            <div class="pillar-tag">Shakti — Strength</div>
-                            <h3 class="pillar-title">Vitality</h3>
-                            <p class="pillar-body">15 surgical centers and 42 mobile diagnostic labs across 6 states,
-                                providing free cataract surgeries, cardiac screenings, and maternal care to 3,600+
-                                patients annually.</p>
-                        </div>
-                    </article>
-                    <article class="pillar glass" style="transition-delay:.32s">
-                        <div class="shine"></div>
-                        <img class="pillar-img" src="farming.png" alt="Farmers harvesting crops in green fields"
-                            width="400" height="220" loading="lazy">
-                        <div class="pillar-content">
-                            <div class="pillar-tag">Samriddhi — Prosperity</div>
-                            <h3 class="pillar-title">Resilience</h3>
-                            <p class="pillar-body">Climate-resilient toolkits, micro-capital, and cooperative market
-                                linkages for 4,200 smallholder farming families. Average income increased by 340% within
-                                3 years.</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <!-- ═══ ABOUT ═══ -->
-            <section id="about" aria-label="About us">
-                <div class="about-window glass" style="transition-delay:.1s">
-                    <div class="shine"></div>
+        <main id="main">
+            <section class="hero section" aria-label="Hero">
+                <article class="hero-card glass hover-lift" data-reveal>
+                    <div class="hero-intro">
+                        <!-- COPY UPDATED FROM PDF SOURCES -->
+                        <div class="eyebrow">Registered Public Charitable Trust</div>
+                        <h1>Building <span class="gradient-text">strength</span>, education, and sustained well-being.</h1>
+                        <p class="hero-copy lede">Akshaya Charitable Trust is guided by Shakti, Shiksha, and Samriddhi, a philosophy that supports empowerment, education, and long-term well-being with responsibility, transparency, and continuity.</p>
+                    </div>
                     <div>
-                        <div class="tag">our philosophy</div>
-                        <h2 style="margin-bottom:20px">Radical Stewardship.</h2>
-                        <p class="about-text">Akshaya Charitable Trust was founded in 2011 on one premise: charity must
-                            be an investment in human flourishing, not a transaction. We deploy a data-led,
-                            impact-verified model that traces every rupee from donor to beneficiary.</p>
-                        <p class="about-text" style="margin-top:20px">Our Board of Governors includes former IAS
-                            officers, healthcare professionals, and rural development economists ensuring zero tolerance
-                            for overhead waste.</p>
-                    </div>
-                    <div class="stack gap-md" style="justify-content:center">
-                        <div class="mini-card glass" style="transition-delay:.18s">
-                            <div class="shine"></div>
-                            <h4>Vision</h4>
-                            <p>A rural India where every citizen is health-secure, digitally literate, and economically
-                                sovereign.</p>
+                        <div class="hero-actions">
+                            <a class="btn btn-primary" href="#giving">Support the Trust</a>
+                            <a class="btn btn-secondary" href="#contact">Verify Trust Details</a>
+                            <a class="btn btn-ghost" href="#cinema">Explore the Philosophy</a>
                         </div>
-                        <div class="mini-card glass" style="transition-delay:.28s">
-                            <div class="shine"></div>
-                            <h4>Mission</h4>
-                            <p>Convert high-intent philanthropy into auditable, life-changing outcomes through precision
-                                governance.</p>
-                        </div>
-                        <div class="mini-card glass" style="transition-delay:.38s">
-                            <div class="shine"></div>
-                            <h4>Values</h4>
-                            <p>Integrity-first. Community-led. Data-verified. Zero overhead tolerance.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══ TESTIMONIALS ═══ -->
-            <section id="testimonials" aria-label="Testimonials">
-                <div class="section-header">
-                    <div class="tag">voices of impact</div>
-                    <h2>Stories That Matter.</h2>
-                    <p>Real words from the communities and partners who make this sanctuary possible.</p>
-                </div>
-                <div class="testimonials-grid">
-                    <blockquote class="testimonial glass" style="transition-delay:.08s">
-                        <div class="shine"></div>
-                        <p class="testimonial-quote">"My daughter became the first girl from our village to pass the
-                            national engineering exam. Akshaya funded every book, every meal, every dream."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">R</div>
-                            <div>
-                                <div class="testimonial-name">Rajamma Devi</div>
-                                <div class="testimonial-role">Parent, Kolar District</div>
+                        <div class="hero-metrics">
+                            <div class="metric-chip glass">
+                                <strong data-count="3">0</strong>
+                                <span class="muted">guiding pillars</span>
+                            </div>
+                            <div class="metric-chip glass">
+                                <strong data-count="2">0</strong>
+                                <span class="muted">official phone numbers</span>
+                            </div>
+                            <div class="metric-chip glass">
+                                <strong data-count="2">0</strong>
+                                <span class="muted">trust addresses</span>
                             </div>
                         </div>
-                    </blockquote>
-                    <blockquote class="testimonial glass" style="transition-delay:.18s">
-                        <div class="shine"></div>
-                        <p class="testimonial-quote">"We conducted 1,200 free eye surgeries last quarter alone. The
-                            Trust's logistical precision is unmatched in the Indian NGO space."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">A</div>
+                    </div>
+                </article>
+
+                <div class="hero-side">
+                    <article class="hero-visual glass hover-lift" data-reveal>
+                        <div class="hero-media">
+                            <img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 50vw" alt="Children in a classroom supported by the trust" width="900" height="1200" decoding="async" fetchpriority="high">
+                        </div>
+                        <div class="floating-row" style="margin-top:18px;">
                             <div>
-                                <div class="testimonial-name">Dr. Arun Mehta</div>
-                                <div class="testimonial-role">Chief Surgeon, Vision Camp</div>
+                                <div class="badge">Official trust details</div>
+                                <p class="muted" style="margin-top:12px; max-width: 420px;">Reg. No. GAN-4-00049-2013-14, PAN AALTA6108J, 12A AALTA6108JE20251, 80G AALTA6108JF20251, and Darpan No. KA/2025/0657083.</p>
+                            </div>
+                            <div style="text-align:right;">
+                                <div style="font-family:var(--font-display);font-size:2.2rem;color:var(--text);">2013</div>
+                                <div class="muted">registered since</div>
                             </div>
                         </div>
-                    </blockquote>
-                    <blockquote class="testimonial glass" style="transition-delay:.28s">
-                        <div class="shine"></div>
-                        <p class="testimonial-quote">"Our farm income tripled within two years of joining the
-                            cooperative. My children now eat three meals a day and attend school full-time."</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-avatar">K</div>
+                    </article>
+
+                    <article class="hero-floating glass hover-lift" data-reveal>
+                        <div class="floating-row">
                             <div>
-                                <div class="testimonial-name">Kariyappa G.</div>
-                                <div class="testimonial-role">Farmer, Mandya</div>
+                                <div class="badge">How Akshaya works</div>
+                                <h3 style="margin-top:14px;">Empowerment first. Education next. Sustained support throughout.</h3>
                             </div>
                         </div>
-                    </blockquote>
+                        <div class="proof-board">
+                            <div class="floating-card glass">
+                                <p class="muted">Approach</p>
+                                <h4 style="margin-top:8px; font-size:1.4rem;">Empowerment before assistance</h4>
+                                <p style="margin-top:10px;">The trust focuses on building capacity and self-reliance rather than creating dependency.</p>
+                            </div>
+                            <div class="floating-card glass">
+                                <p class="muted">Commitment</p>
+                                <h4 style="margin-top:8px; font-size:1.4rem;">Transparency and accountability</h4>
+                                <p style="margin-top:10px;">Akshaya maintains clear governance, responsible financial practices, and direct acknowledgement for every contribution.</p>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </section>
 
-            <!-- ═══ JOURNEY — AUTO-SCROLL ═══ -->
-            <section aria-label="Our Journey">
+            <section id="impact" class="section glass section-space" data-reveal>
                 <div class="section-header">
-                    <div class="tag">the journey</div>
-                    <h2>15 Years of Purpose.</h2>
-                    <p>Hover to pause. A legacy in motion.</p>
+                    <div class="eyebrow">Trust snapshot</div>
+                    <h2>Clear facts, clear purpose, clear accountability.</h2>
+                    <p class="lede">Akshaya Charitable Trust is a registered public charitable trust working through three connected pillars: Shakti, Shiksha, and Samriddhi.</p>
                 </div>
-                <div class="timeline-viewport">
-                    <div class="timeline-track" role="list">
-                        <div class="timeline-card glass" role="listitem">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2011</div>
-                            <p class="timeline-event">Founded in Bengaluru with a single school adoption program
-                                covering 40 students.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2014</div>
-                            <p class="timeline-event">First mobile medical camp deployed. 800 patients screened in
-                                Ramanagara district.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2017</div>
-                            <p class="timeline-event">FCRA registration secured. International donor partnerships
-                                established across 4 countries.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2020</div>
-                            <p class="timeline-event">COVID relief: 50,000 meal kits and 12 oxygen concentrators
-                                distributed in 90 days.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2023</div>
-                            <p class="timeline-event">Real-Time Stewardship Dashboard launched. 96% fund efficiency
-                                achieved.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2026</div>
-                            <p class="timeline-event">8,420 active scholarships. 320 villages. 15 surgical centres.
-                                Digital Sanctuary goes live.</p>
-                        </div>
-                        <!-- duplicate for loop -->
-                        <div class="timeline-card glass" role="listitem" aria-hidden="true">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2011</div>
-                            <p class="timeline-event">Founded in Bengaluru with a single school adoption program
-                                covering 40 students.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem" aria-hidden="true">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2014</div>
-                            <p class="timeline-event">First mobile medical camp deployed. 800 patients screened in
-                                Ramanagara district.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem" aria-hidden="true">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2017</div>
-                            <p class="timeline-event">FCRA registration secured. International donor partnerships
-                                established across 4 countries.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem" aria-hidden="true">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2020</div>
-                            <p class="timeline-event">COVID relief: 50,000 meal kits and 12 oxygen concentrators
-                                distributed in 90 days.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem" aria-hidden="true">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2023</div>
-                            <p class="timeline-event">Real-Time Stewardship Dashboard launched. 96% fund efficiency
-                                achieved.</p>
-                        </div>
-                        <div class="timeline-card glass" role="listitem" aria-hidden="true">
-                            <div class="shine"></div>
-                            <div class="timeline-year">2026</div>
-                            <p class="timeline-event">8,420 active scholarships. 320 villages. 15 surgical centres.
-                                Digital Sanctuary goes live.</p>
-                        </div>
-                    </div>
+                <div class="impact-grid">
+                    <article class="impact-card glass hover-lift">
+                        <div class="impact-value" data-count="1">0</div>
+                        <div class="impact-label">registered trust</div>
+                        <p style="margin-top:12px;">Officially registered public charitable trust with clear legal standing and oversight.</p>
+                    </article>
+                    <article class="impact-card glass hover-lift">
+                        <div class="impact-value" data-count="3">0</div>
+                        <div class="impact-label">core pillars</div>
+                        <p style="margin-top:12px;">Shakti builds strength, Shiksha supports learning continuity, and Samriddhi sustains long-term well-being.</p>
+                    </article>
+                    <article class="impact-card glass hover-lift">
+                        <div class="impact-value" data-count="2">0</div>
+                        <div class="impact-label">official addresses</div>
+                        <p style="margin-top:12px;">Registered office at Sunkalpet Main Road and office address at Ramanna Pet, J.M. Road Cross, Bangalore 02.</p>
+                    </article>
+                    <article class="impact-card glass hover-lift">
+                        <div class="impact-value" data-count="2">0</div>
+                        <div class="impact-label">official phone lines</div>
+                        <p style="margin-top:12px;">Stakeholders are encouraged to contact the trust directly at 9844834103 or 8861438805 for verification or clarification.</p>
+                    </article>
                 </div>
             </section>
+            <section class="section section-grid proof-grid">
+                <article class="glass section-space hover-lift" data-reveal>
+                    <div class="section-header" style="margin-bottom:22px;">
+                        <div class="eyebrow">Compliance and identity</div>
+                        <h2>Every official identifier is visible and verifiable.</h2>
+                    </div>
+                    <p class="lede">The trust documents shared in the PDFs clearly establish Akshaya's legal identity, official channels, and commitment to accountable giving.</p>
+                    <div class="proof-board" style="margin-top:24px;">
+                        <div class="proof-panel glass">
+                            <h3>Registration and compliance</h3>
+                            <ul class="support-list">
+                                <li>Reg. No: GAN-4-00049-2013-14</li>
+                                <li>PAN: AALTA6108J</li>
+                                <li>12A No: AALTA6108JE20251</li>
+                                <li>80G No: AALTA6108JF20251</li>
+                                <li>Darpan No: KA/2025/0657083</li>
+                                <li>CSR Number: CSR00099254</li>
+                            </ul>
+                        </div>
+                        <div class="proof-panel glass">
+                            <h3>Official channels only</h3>
+                            <ul class="support-list">
+                                <li>Email: hope.akshaya@gmail.com</li>
+                                <li>Website: theakshayafoundation.org</li>
+                                <li>Phones: 9844834103, 8861438805</li>
+                                <li>Founder & President: Saradhamma K</li>
+                                <li>Registered Address: #77 Venkateshwara Nilaya, Sunkalpet Main Road, Bangalore 02</li>
+                                <li>Office Address: #40/A Ramanna Pet, J.M Road Cross, Bangalore 02</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="glass section-space hover-lift" data-reveal>
+                    <div class="eyebrow">Accountability</div>
+                    <div class="support-grid" style="grid-template-columns:1fr;">
+                        <div class="support-card glass">
+                            <h3>Commitment to accountability</h3>
+                            <p>Trust and transparency are central to Akshaya's mission. The trust states that it upholds the highest standards of governance and accountability in all its operations.</p>
+                            <ul class="support-list">
+                                <li>Clear governance with defined roles and oversight mechanisms</li>
+                                <li>Transparent accounting and responsible financial reporting</li>
+                                <li>Donations accepted only through official trust channels</li>
+                                <li>Volunteers engaged for outreach and awareness, never for fund collection</li>
+                                <li>Receipts and acknowledgements issued directly by the trust</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </section>
 
-            <!-- ═══ DONATION TIERS ═══ -->
-            <section id="give" aria-label="Giving options">
+            <section id="programs" class="section glass section-space" data-reveal>
                 <div class="section-header">
-                    <div class="tag">join the legacy</div>
-                    <h2>Choose Your Impact.</h2>
-                    <p>Every contribution is 80G tax-deductible. Every rupee is traceable.</p>
+                    <div class="eyebrow">Programs</div>
+                    <h2>Three pillars guide every initiative of the trust.</h2>
+                    <p class="lede">The trust's work follows one connected pathway: building strength, protecting learning continuity, and sustaining dignity over time.</p>
                 </div>
-                <div class="tiers-grid">
-                    <div class="tier glass" style="transition-delay:.08s">
-                        <div class="shine"></div>
-                        <div class="tier-name">Seedling</div>
-                        <div class="tier-price">₹1,000<span>/month</span></div>
-                        <ul class="tier-features">
-                            <li>Sponsor 1 child's meals for a month</li>
-                            <li>Quarterly impact report</li>
-                            <li>Digital certificate of giving</li>
-                            <li>80G tax deduction receipt</li>
-                        </ul>
-                        <button type="button" class="btn btn-ghost" style="width:100%;justify-content:center">Begin
-                            Giving</button>
+                <div class="program-grid">
+                    <article class="program-card glass hover-lift">
+                        <div class="program-media"><img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 33vw" alt="Children in a classroom" width="1200" height="900" loading="lazy" decoding="async"></div>
+                        <div class="program-meta">
+                            <span class="chip">Shakti</span>
+                            <span class="chip">Women Empowerment</span>
+                            <span class="chip">Self-Reliance</span>
+                        </div>
+                        <h3>Shakti builds strength, confidence, and self-reliance.</h3>
+                        <p>Shakti focuses on empowering individuals, especially women, through skill development, capacity building, and livelihood-oriented support.</p>
+                        <div class="mini-actions"><a class="btn btn-ghost" href="#giving">Support Shakti</a></div>
+                    </article>
+                    <article class="program-card glass hover-lift">
+                        <div class="program-media"><img src="healthcare-1200.webp" srcset="healthcare-800.webp 800w, healthcare-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 33vw" alt="Healthcare outreach in a rural community" width="1200" height="900" loading="lazy" decoding="async"></div>
+                        <div class="program-meta">
+                            <span class="chip">Shiksha</span>
+                            <span class="chip">Education</span>
+                            <span class="chip">Learning Continuity</span>
+                        </div>
+                        <h3>Shiksha protects access to education and continuity of learning.</h3>
+                        <p>Shiksha supports children and youth facing financial, social, or circumstantial barriers so that learning can continue with stability and purpose.</p>
+                        <div class="mini-actions"><a class="btn btn-ghost" href="#giving">Support Shiksha</a></div>
+                    </article>
+                    <article class="program-card glass hover-lift">
+                        <div class="program-media"><img src="farming-1200.webp" srcset="farming-800.webp 800w, farming-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 33vw" alt="Farmers in a field" width="1200" height="900" loading="lazy" decoding="async"></div>
+                        <div class="program-meta">
+                            <span class="chip">Samriddhi</span>
+                            <span class="chip">Long-Term Support</span>
+                            <span class="chip">Well-Being</span>
+                        </div>
+                        <h3>Samriddhi sustains dignity, continuity, and long-term well-being.</h3>
+                        <p>Samriddhi supports individuals who need ongoing care over time, including extended educational support, continued empowerment, elderly care, and help through prolonged life-stage challenges.</p>
+                        <div class="mini-actions"><a class="btn btn-ghost" href="#giving">Support Samriddhi</a></div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="cinema" class="section cinema-section" aria-label="Scroll cinema">
+                <div class="cinema-stage glass" data-reveal>
+                    <div class="cinema-visual hover-lift">
+                        <div class="cinema-layer active" data-scene="0"><img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 50vw" alt="Students supported by the trust" loading="lazy" decoding="async"></div>
+                        <div class="cinema-layer" data-scene="1"><img src="healthcare-1200.webp" srcset="healthcare-800.webp 800w, healthcare-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Healthcare workers in the field" loading="lazy" decoding="async"></div>
+                        <div class="cinema-layer" data-scene="2"><img src="farming-1200.webp" srcset="farming-800.webp 800w, farming-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Agricultural prosperity programs" loading="lazy" decoding="async"></div>
+                        <div class="cinema-overlay">
+                            <div class="play-pill"><span class="play-dot"></span> Shakti · Shiksha · Samriddhi</div>
+                            <p style="color:#fff; max-width: 520px;">Together, these three pillars form a complete pathway to sustained social impact, transforming lives with compassion and commitment.</p>
+                        </div>
                     </div>
-                    <div class="tier featured glass" style="transition-delay:.18s">
-                        <div class="shine"></div>
-                        <div class="tag" style="margin:0 auto">most popular</div>
-                        <div class="tier-name">Guardian</div>
-                        <div class="tier-price">₹5,000<span>/month</span></div>
-                        <ul class="tier-features">
-                            <li>Full scholarship for 1 child</li>
-                            <li>Personal letters from your student</li>
-                            <li>Annual school visit invitation</li>
-                            <li>Named mention in audit reports</li>
-                            <li>80G tax deduction receipt</li>
-                        </ul>
-                        <button type="button" class="btn btn-gold" style="width:100%;justify-content:center">Become a
-                            Guardian</button>
-                    </div>
-                    <div class="tier glass" style="transition-delay:.28s">
-                        <div class="shine"></div>
-                        <div class="tier-name">Architect</div>
-                        <div class="tier-price">₹25,000<span>/month</span></div>
-                        <ul class="tier-features">
-                            <li>Fund an entire classroom wing</li>
-                            <li>Direct Board briefings quarterly</li>
-                            <li>Named facility dedication</li>
-                            <li>Corporate CSR documentation</li>
-                            <li>Full impact audit access</li>
-                        </ul>
-                        <button type="button" class="btn btn-ghost" style="width:100%;justify-content:center">Partner
-                            Now</button>
+                    <div class="cinema-copy">
+                        <div>
+                            <div class="eyebrow">Guiding philosophy</div>
+                            <h2>One journey. Three connected pillars.</h2>
+                            <p class="lede">Akshaya's approach is structured around a movement from inner strength to learning continuity to long-term stability, creating lasting change in people's lives.</p>
+                        </div>
+                        <div class="cinema-steps">
+                            <article class="cinema-step active" data-copy-step="0">
+                                <h3>Shakti</h3>
+                                <p>Building strength, confidence, and self-reliance through empowerment initiatives.</p>
+                            </article>
+                            <article class="cinema-step" data-copy-step="1">
+                                <h3>Shiksha</h3>
+                                <p>Creating access to education and ensuring continuity of learning for children and youth.</p>
+                            </article>
+                            <article class="cinema-step" data-copy-step="2">
+                                <h3>Samriddhi</h3>
+                                <p>Enabling continuity, dignity, and sustained well-being for individuals who need support over time.</p>
+                            </article>
+                        </div>
+                        <div class="mini-actions">
+                            <a class="btn btn-secondary" href="#giving">Support the Mission</a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ═══ CTA ═══ -->
-            <section aria-label="Call to action">
-                <div class="cta-box glass" style="transition-delay:.1s">
-                    <div class="shine"></div>
-                    <div class="tag">ready to ignite?</div>
-                    <h2>Your Partnership Changes <span class="gradient-text">Everything.</span></h2>
-                    <p style="max-width:560px;font-size:1.2rem">Join 2,400+ donors who trust Akshaya to convert
-                        generosity into verified, life-altering outcomes.</p>
-                    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
-                        <button type="button" class="btn btn-primary" style="padding:22px 56px;font-size:1.1rem">Donate
-                            Now</button>
-                        <button type="button" class="btn btn-gold" style="padding:22px 48px;font-size:1.1rem">Download
-                            Report</button>
-                    </div>
+            <section class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Who the trust serves</div>
+                    <h2>The trust focuses on people facing real barriers to dignity and stability.</h2>
+                    <p class="lede">The PDF introduces the communities Akshaya supports across empowerment, education, and sustained care.</p>
                 </div>
+                <div class="stories-grid">
+                    <article class="story-card glass hover-lift">
+                        <p class="story-quote">"Women from vulnerable backgrounds seeking opportunities for growth, skill development, and pathways to self-reliance."</p>
+                        <div class="story-author">
+                            <div class="story-avatar">S</div>
+                            <div>
+                                <strong>Shakti</strong>
+                                <p class="muted">Empowerment and self-reliance</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="story-card glass hover-lift">
+                        <p class="story-quote">"Children and youth facing financial, social, or circumstantial barriers to education and continuity of learning."</p>
+                        <div class="story-author">
+                            <div class="story-avatar">E</div>
+                            <div>
+                                <strong>Shiksha</strong>
+                                <p class="muted">Education and learning continuity</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="story-card glass hover-lift">
+                        <p class="story-quote">"Individuals requiring ongoing assistance to achieve dignity and stability, including elderly care and prolonged life-stage support."</p>
+                        <div class="story-author">
+                            <div class="story-avatar">W</div>
+                            <div>
+                                <strong>Samriddhi</strong>
+                                <p class="muted">Sustained support and well-being</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="giving" class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Giving</div>
+                    <h2>Support the pillar that speaks most deeply to you.</h2>
+                    <p class="lede">The trust welcomes well-wishers who resonate with Shakti, Shiksha, and Samriddhi and choose to support those initiatives through official trust channels only.</p>
+                </div>
+                <div class="tier-grid">
+                    <article class="tier glass hover-lift">
+                        <div class="tier-kicker">Support a pillar</div>
+                        <h3>Shakti</h3>
+                        <div class="tier-price">Women <span>empowerment</span></div>
+                        <p>Support strength, confidence, and self-reliance through initiatives focused on empowerment, skills, and livelihood pathways.</p>
+                        <ul class="tier-list">
+                            <li>Underserved women seeking opportunities for growth</li>
+                            <li>Skill development and capacity building</li>
+                            <li>Support delivered with dignity and continuity</li>
+                        </ul>
+                        <a class="btn btn-ghost btn-block" href="#contact">Support Shakti</a>
+                    </article>
+                    <article class="tier glass featured hover-lift">
+                        <div class="tier-kicker">Support a pillar</div>
+                        <h3>Shiksha</h3>
+                        <div class="tier-price">Learning <span>continuity</span></div>
+                        <p>Support access to education for children and youth who face financial, social, or circumstantial barriers to staying in school.</p>
+                        <ul class="tier-list">
+                            <li>Children from economically weaker backgrounds</li>
+                            <li>Students at risk of discontinuing education</li>
+                            <li>School readiness and academic continuity support</li>
+                            <li>Educational assistance for long-term stability</li>
+                        </ul>
+                        <a class="btn btn-primary btn-block" href="#contact">Support Shiksha</a>
+                    </article>
+                    <article class="tier glass hover-lift">
+                        <div class="tier-kicker">Support a pillar</div>
+                        <h3>Samriddhi</h3>
+                        <div class="tier-price">Long-term <span>well-being</span></div>
+                        <p>Support people who require ongoing assistance over time so they can live with continuity, dignity, and stability.</p>
+                        <ul class="tier-list">
+                            <li>Extended educational support</li>
+                            <li>Continued empowerment and rehabilitation</li>
+                            <li>Elderly care and essential assistance</li>
+                        </ul>
+                        <a class="btn btn-secondary btn-block" href="#contact">Support Samriddhi</a>
+                    </article>
+                </div>
+            </section>
+            <section class="section section-grid support-grid" data-reveal>
+                <article class="support-card glass hover-lift">
+                    <div class="eyebrow">Governance</div>
+                    <h3>Officially registered and directly accountable.</h3>
+                    <p>Akshaya presents itself as a registered public charitable trust with clear legal standing, structured governance, and direct documentation for contributions.</p>
+                    <ul class="governance-list">
+                        <li>Reg. No: GAN-4-00049-2013-14</li>
+                        <li>PAN: AALTA6108J</li>
+                        <li>CSR Number: CSR00099254</li>
+                    </ul>
+                </article>
+                <article class="support-card glass hover-lift">
+                    <div class="eyebrow">Documentation</div>
+                    <h3>Every contribution should come through official channels only.</h3>
+                    <p>The PDFs clearly state that donations are accepted exclusively through official trust channels and receipts are issued directly by the trust.</p>
+                    <ul class="governance-list">
+                        <li>12A No: AALTA6108JE20251</li>
+                        <li>80G No: AALTA6108JF20251</li>
+                        <li>Darpan No: KA/2025/0657083</li>
+                    </ul>
+                </article>
+                <article class="support-card glass hover-lift">
+                    <div class="eyebrow">Direct contact</div>
+                    <h3>Stakeholders are encouraged to contact the trust directly.</h3>
+                    <p>The trust invites donors, well-wishers, and stakeholders to reach out for information, verification, or clarification through its official contact points.</p>
+                    <ul class="governance-list">
+                        <li>Email: hope.akshaya@gmail.com</li>
+                        <li>Phones: 9844834103 and 8861438805</li>
+                        <li>Website: theakshayafoundation.org</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Questions</div>
+                    <h2>Important questions, answered from the trust documents.</h2>
+                </div>
+                <div class="faq-grid">
+                    <details class="faq-item glass hover-lift" open>
+                        <summary>How does the trust receive support?<span>+</span></summary>
+                        <p>All support, if extended, is received only through official trust channels and utilised responsibly. Receipts and acknowledgements are issued directly by the trust.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>What official records identify Akshaya Charitable Trust?<span>+</span></summary>
+                        <p>Akshaya shares its registration number, PAN, 12A, 80G, and Darpan details, and the CSR number provided for this site is CSR00099254.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>Who should contact the trust for verification or clarification?<span>+</span></summary>
+                        <p>Stakeholders are encouraged to contact the trust directly by email or phone for information, verification, or clarification.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>What does Samriddhi mean in Akshaya's work?<span>+</span></summary>
+                        <p>Samriddhi represents continuity, stability, and long-term well-being through sustained support for those who need assistance over time.</p>
+                    </details>
+                </div>
+            </section>
+
+            <section id="contact" class="section section-grid contact-grid" data-reveal>
+                <article class="contact-card glass section-space hover-lift">
+                    <div class="section-header" style="margin-bottom: 18px;">
+                        <div class="eyebrow">Connect with the trust</div>
+                        <h2>Use the official contact channels for support or verification.</h2>
+                        <p class="lede">For information, verification, or clarification, the trust encourages stakeholders to connect directly through its official email, phones, and website.</p>
+                    </div>
+                    <form class="contact-form">
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="name">Name</label>
+                                <input id="name" name="name" type="text" placeholder="Your full name">
+                            </div>
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" placeholder="you@example.com">
+                            </div>
+                        </div>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="interest">I want to</label>
+                                <select id="interest" name="interest">
+                                    <option>Support Shakti</option>
+                                    <option>Support Shiksha</option>
+                                    <option>Support Samriddhi</option>
+                                    <option>Verify trust details</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="phone">Phone</label>
+                                <input id="phone" name="phone" type="tel" placeholder="Your phone number">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Share how you would like to connect with Akshaya Charitable Trust."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Contact the Trust</button>
+                    </form>
+                </article>
+                <article class="contact-card glass section-space hover-lift">
+                    <div class="eyebrow">Official details</div>
+                    <h3>Verified information from the trust documents</h3>
+                    <ul class="contact-list">
+                        <li>Founder & President: Saradhamma K</li>
+                        <li>Email: hope.akshaya@gmail.com</li>
+                        <li>Website: https://theakshayafoundation.org</li>
+                        <li>Phones: 9844834103, 8861438805</li>
+                    </ul>
+                    <div class="glass" style="margin-top:22px; padding:20px; border-radius:24px;">
+                        <div class="badge">Addresses</div>
+                        <p style="margin-top:14px;">Registered Address: #77 Venkateshwara Nilaya, Sunkalpet Main Road, Bangalore 02. Office Address: #40/A Ramanna Pet, J.M Road Cross, Bangalore 02.</p>
+                    </div>
+                </article>
             </section>
         </main>
 
-        <footer class="glass" role="contentinfo">
-            <div class="shine"></div>
-            <div class="logo">
-                <div class="logo-mark"><img src="Logo.jpeg" alt="Akshaya Charitable Trust logo" width="48" height="48"
-                        loading="lazy"></div>
-                Akshaya Charitable Trust
+        <footer class="footer glass">
+            <div>
+                <div class="brand" style="justify-content:flex-start;">
+                    <div class="brand-mark"><img src="logo-96.webp" srcset="logo-96.webp 96w, logo-160.webp 160w" sizes="54px" alt="Akshaya Charitable Trust logo" width="54" height="54" loading="lazy" decoding="async"></div>
+                    <div class="brand-copy">
+                        <div class="brand-title">Akshaya Charitable Trust</div>
+                        <div class="brand-subtitle">Shakti · Shiksha · Samriddhi</div>
+                    </div>
+                </div>
             </div>
-            <div
-                style="font-family:'EB Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold)">
-                Shakti · Shiksha · Samriddhi</div>
             <div class="footer-links">
-                <a href="#">Annual Reports</a>
-                <a href="#">Governance Charter</a>
-                <a href="#">Partner Portal</a>
-                <a href="#">Press Kit</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Contact</a>
+                <a href="#impact">Impact</a>
+                <a href="#programs">Programs</a>
+                <a href="#giving">Give</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="footer-legal">Copyright © 2026 | Powered by Akshaya Charitable Trust - NGO in India</div>
+            <p class="muted">Reg. No. GAN-4-00049-2013-14 | Email: hope.akshaya@gmail.com | CSR00099254</p>
         </footer>
     </div>
 
     <script>
-        const G = document.querySelectorAll('.glass');
+        const root = document.documentElement;
+        const revealItems = document.querySelectorAll('[data-reveal]');
+        const cinemaSection = document.querySelector('.cinema-section');
+        const cinemaLayers = document.querySelectorAll('[data-scene]');
+        const cinemaSteps = document.querySelectorAll('[data-copy-step]');
+        const hoverTargets = document.querySelectorAll('.hero-card, .hero-visual, .hero-floating, .cinema-visual, .cinema-stage');
+        const motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const hoverOk = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        let parallaxFrame = false;
+        let scrollFrame = false;
+        let pointerX = window.innerWidth / 2;
+        let pointerY = window.innerHeight / 2;
 
-        /* REVEAL */
-        const obs = new IntersectionObserver(ee => {
-            ee.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('vis');
-                    e.target.querySelectorAll('[data-target]').forEach(c => countUp(c, +c.dataset.target, 2400));
-                    obs.unobserve(e.target);
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                entry.target.querySelectorAll('[data-count]').forEach((item) => animateCount(item));
+                revealObserver.unobserve(entry.target);
+            });
+        }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+
+        function animateCount(node) {
+            if (node.dataset.done) return;
+            node.dataset.done = 'true';
+            const target = Number(node.dataset.count);
+            const duration = 1800;
+            let start = null;
+
+            function frame(timestamp) {
+                if (!start) start = timestamp;
+                const progress = Math.min((timestamp - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 4);
+                const value = Math.floor(target * eased);
+                node.textContent = value.toLocaleString('en-IN');
+                if (progress < 1) requestAnimationFrame(frame);
+            }
+
+            requestAnimationFrame(frame);
+        }
+
+        function updateCinema() {
+            if (!cinemaSection) return;
+            const rect = cinemaSection.getBoundingClientRect();
+            const total = Math.max(cinemaSection.offsetHeight - window.innerHeight, 1);
+            const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+            const stepIndex = Math.min(cinemaLayers.length - 1, Math.floor(progress * cinemaLayers.length));
+
+            cinemaLayers.forEach((layer, index) => {
+                layer.classList.toggle('active', index === stepIndex);
+            });
+
+            cinemaSteps.forEach((step, index) => {
+                step.classList.toggle('active', index === stepIndex);
+            });
+        }
+
+        updateCinema();
+        function syncOnScroll() {
+            scrollFrame = false;
+            updateCinema();
+            if (motionOk) paintParallax();
+        }
+
+        window.addEventListener('scroll', () => {
+            if (scrollFrame) return;
+            scrollFrame = true;
+            requestAnimationFrame(syncOnScroll);
+        }, { passive: true });
+        window.addEventListener('resize', updateCinema);
+
+        function paintParallax() {
+            parallaxFrame = false;
+            const x = ((pointerX / window.innerWidth) - 0.5) * 32;
+            const y = ((pointerY / window.innerHeight) - 0.5) * 24;
+            const scroll = Math.min(window.scrollY / Math.max(document.body.scrollHeight - window.innerHeight, 1), 1);
+            root.style.setProperty('--parallax-x', `${x.toFixed(2)}px`);
+            root.style.setProperty('--parallax-y', `${(y + scroll * 18).toFixed(2)}px`);
+        }
+
+        if (motionOk) {
+            window.addEventListener('pointermove', (event) => {
+                pointerX = event.clientX;
+                pointerY = event.clientY;
+                if (!parallaxFrame) {
+                    parallaxFrame = true;
+                    requestAnimationFrame(paintParallax);
                 }
             });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-        G.forEach(el => obs.observe(el));
 
-        /* SHINE + TILT — only runs when mouse moves, auto-stops */
-        let mx = 0, my = 0, pending = false;
+        }
 
-        document.addEventListener('mousemove', e => {
-            mx = e.clientX; my = e.clientY;
-            if (!pending) { pending = true; requestAnimationFrame(tick); }
-        });
+        paintParallax();
 
-        function tick() {
-            pending = false;
-            const wH = innerHeight;
-            G.forEach(el => {
-                const r = el.getBoundingClientRect();
-                if (r.bottom < 0 || r.top > wH) return;
-                el.style.setProperty('--sx', (mx - r.left) + 'px');
-                el.style.setProperty('--sy', (my - r.top) + 'px');
-                if (el.tagName === 'NAV' || !el.classList.contains('vis')) return;
-                const dx = (mx - (r.left + r.width / 2)) / r.width;
-                const dy = (my - (r.top + r.height / 2)) / r.height;
-                el.style.transform = `perspective(1600px) rotateX(${(dy * -2).toFixed(2)}deg) rotateY(${(dx * 2).toFixed(2)}deg)`;
+        if (motionOk && hoverOk) {
+            hoverTargets.forEach((card) => {
+                card.addEventListener('pointermove', (event) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = (event.clientX - rect.left) / rect.width - 0.5;
+                    const y = (event.clientY - rect.top) / rect.height - 0.5;
+                    card.style.setProperty('--mx', `${((x + 0.5) * 100).toFixed(2)}%`);
+                    card.style.setProperty('--my', `${((y + 0.5) * 100).toFixed(2)}%`);
+                    card.style.transform = `translateY(-6px) rotateX(${(-y * 2.8).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg)`;
+                });
+
+                card.addEventListener('pointerleave', () => {
+                    card.style.transform = '';
+                    card.style.removeProperty('--mx');
+                    card.style.removeProperty('--my');
+                });
             });
         }
 
-        document.addEventListener('mouseleave', () => {
-            G.forEach(el => { if (el.tagName !== 'NAV') el.style.transform = ''; });
+        document.querySelector('.contact-form')?.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const button = event.currentTarget.querySelector('button[type="submit"]');
+            const original = button.textContent;
+            button.textContent = 'Inquiry Captured';
+            button.disabled = true;
+            setTimeout(() => {
+                button.textContent = original;
+                button.disabled = false;
+            }, 2200);
         });
-
-        /* COUNTER — easeOutQuart */
-        function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
-        function countUp(el, target, ms) {
-            let t0;
-            (function f(ts) {
-                if (!t0) t0 = ts;
-                const p = Math.min((ts - t0) / ms, 1);
-                const v = easeOutQuart(p) * target;
-                el.textContent = target % 1 === 0 ? Math.floor(v).toLocaleString('en-IN') : v.toFixed(1);
-                if (p < 1) requestAnimationFrame(f);
-            })(performance.now());
-        }
     </script>
 </body>
 
