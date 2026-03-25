@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="aurora">
 
 <head>
@@ -1416,6 +1416,280 @@
             color: var(--text);
         }
 
+        .footer-social {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            color: var(--text-soft);
+            font-size: 1.1rem;
+            transition: background 300ms ease, transform 300ms var(--ease-standard), color 300ms ease;
+        }
+
+        .footer-social a:hover {
+            background: rgba(255, 255, 255, 0.34);
+            color: var(--text);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 18px;
+            border-top: 1px solid var(--line-soft);
+        }
+
+        /* --- HAMBURGER MENU --- */
+        .hamburger {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border: none;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.18);
+            cursor: pointer;
+            position: relative;
+            z-index: 70;
+            transition: background 250ms ease;
+        }
+
+        .hamburger:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 22px;
+            height: 2.5px;
+            border-radius: 2px;
+            background: var(--text);
+            transition: transform 350ms var(--ease-standard), opacity 250ms ease;
+        }
+
+        .hamburger-line + .hamburger-line {
+            margin-top: 5px;
+        }
+
+        html[data-drawer="open"] .hamburger .hamburger-line:nth-child(1) {
+            transform: translateY(7.5px) rotate(45deg);
+        }
+
+        html[data-drawer="open"] .hamburger .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        html[data-drawer="open"] .hamburger .hamburger-line:nth-child(3) {
+            transform: translateY(-7.5px) rotate(-45deg);
+        }
+
+        .drawer-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(47, 27, 26, 0.32);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 55;
+            opacity: 0;
+            transition: opacity 350ms ease;
+        }
+
+        .drawer-backdrop.is-active {
+            display: block;
+            opacity: 1;
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: min(320px, 85vw);
+            height: 100vh;
+            height: 100dvh;
+            z-index: 65;
+            padding: 90px 28px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            overflow-y: auto;
+            background:
+                radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.22), transparent 20%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.06) 44%, transparent 74%),
+                linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 82%, white 18%), var(--bg));
+            border-left: 1px solid var(--line);
+            backdrop-filter: blur(28px) saturate(140%);
+            -webkit-backdrop-filter: blur(28px) saturate(140%);
+            transform: translateX(100%);
+            transition: transform 400ms var(--ease-standard);
+        }
+
+        html[data-drawer="open"] .drawer {
+            transform: translateX(0);
+        }
+
+        .drawer a {
+            display: block;
+            padding: 16px 18px;
+            border-radius: 18px;
+            font-weight: 700;
+            font-size: 1.08rem;
+            color: var(--text-soft);
+            transition: background 250ms ease, color 250ms ease;
+        }
+
+        .drawer a:hover,
+        .drawer a:active {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text);
+        }
+
+        .drawer .btn {
+            margin-top: auto;
+            text-align: center;
+        }
+
+        /* --- STORY SECTION --- */
+        .story-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .vision-card {
+            padding: 28px;
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            min-height: 260px;
+        }
+
+        .vision-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+            color: #fff;
+            font-size: 1.3rem;
+            box-shadow: 0 12px 28px rgba(111, 48, 48, 0.2);
+        }
+
+        /* --- NEWS CARDS --- */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .news-card {
+            padding: 24px;
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            min-height: 280px;
+        }
+
+        .news-date {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            font-weight: 800;
+            color: var(--text-faint);
+        }
+
+        .news-card h3 {
+            font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+        }
+
+        /* --- VOLUNTEER SECTION --- */
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .volunteer-card {
+            padding: 28px;
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            min-height: 300px;
+        }
+
+        .volunteer-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-strong));
+            color: #261815;
+            font-size: 1.3rem;
+            box-shadow: 0 12px 28px rgba(216, 170, 67, 0.24);
+        }
+
+        /* --- TRANSPARENCY SECTION --- */
+        .transparency-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .transparency-card {
+            padding: 28px;
+            border-radius: var(--radius-xl);
+        }
+
+        .transparency-highlight {
+            padding: 24px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(216, 170, 67, 0.14), rgba(111, 48, 48, 0.08));
+            border: 1px solid rgba(216, 170, 67, 0.28);
+            margin-top: 18px;
+        }
+
+        /* --- STICKY MOBILE CTA --- */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 14px 20px;
+            padding-bottom: max(14px, env(safe-area-inset-bottom));
+            background:
+                linear-gradient(180deg, rgba(246, 239, 231, 0), var(--bg) 32%);
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .mobile-sticky-cta .btn {
+            pointer-events: auto;
+            width: 100%;
+            padding: 16px;
+            font-size: 1rem;
+        }
+
         [data-reveal] {
             opacity: 0;
             transform: translateY(24px) scale(0.995);
@@ -1443,8 +1717,15 @@
             .program-grid,
             .stories-grid,
             .tier-grid,
-            .faq-grid {
+            .faq-grid,
+            .news-grid,
+            .volunteer-grid,
+            .story-vision-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .transparency-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer {
@@ -1465,6 +1746,7 @@
 
             .page-shell {
                 padding-top: 14px;
+                padding-bottom: 80px;
             }
 
             body::before,
@@ -1472,6 +1754,15 @@
             .page-shell::before,
             .page-shell::after {
                 display: none;
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-sticky-cta {
+                display: block;
             }
 
             .nav {
@@ -1574,12 +1865,21 @@
             .program-grid,
             .stories-grid,
             .tier-grid,
-            .faq-grid {
+            .faq-grid,
+            .news-grid,
+            .volunteer-grid,
+            .story-vision-grid,
+            .transparency-grid {
                 grid-template-columns: 1fr;
             }
 
             .field-row {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
             }
 
             .brand-title {
@@ -1661,15 +1961,38 @@
                     </div>
                 </div>
                 <div class="nav-links">
+                    <a href="#story">Our Story</a>
+                    <a href="#programs">Programs</a>
                     <a href="#about">About</a>
+                    <a href="#transparency">Transparency</a>
                     <a href="#giving">Give</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="nav-actions">
                     <a class="btn btn-primary btn-donate" href="#giving"><span>Support the Trust</span></a>
+                    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
                 </div>
             </nav>
         </div>
+
+        <div class="drawer-backdrop"></div>
+        <nav class="drawer" aria-label="Mobile navigation">
+            <a href="#story">Our Story</a>
+            <a href="#programs">Programs</a>
+            <a href="#stories">Impact Stories</a>
+            <a href="#news">News</a>
+            <a href="#volunteer">Get Involved</a>
+            <a href="#transparency">Transparency</a>
+            <a href="#about">About</a>
+            <a href="#giving">Give</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <a class="btn btn-primary btn-donate" href="#giving"><span>Support the Trust</span></a>
+        </nav>
 
         <main id="main">
             <section class="hero section" aria-label="Hero">
@@ -1740,6 +2063,226 @@
                             </div>
                         </div>
                     </article>
+                </div>
+            </section>
+
+            <!-- OUR STORY -->
+            <section id="story" class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Our Story</div>
+                    <h2>Founded in 2013, rooted in purpose, guided by three pillars.</h2>
+                    <p class="lede">Akshaya Charitable Trust was established by Saradhamma K with a clear mission: to support empowerment, education, and sustained well-being for underserved communities in Bangalore and beyond. Registered as a public charitable trust (Reg. No. GAN-4-00049-2013-14), Akshaya operates through Shakti, Shiksha, and Samriddhi — three interconnected pillars that guide every initiative.</p>
+                </div>
+                <div class="story-vision-grid">
+                    <article class="vision-card glass hover-lift">
+                        <div class="vision-icon">✦</div>
+                        <h3>Mission</h3>
+                        <p>To empower individuals and families through sustainable programs that build capacity, protect education, and promote long-term stability — delivered with transparency, dignity, and accountability.</p>
+                    </article>
+                    <article class="vision-card glass hover-lift">
+                        <div class="vision-icon">◇</div>
+                        <h3>Vision</h3>
+                        <p>A society where every individual, regardless of circumstance, has access to empowerment, education, and the foundation for sustained well-being and self-reliance.</p>
+                    </article>
+                    <article class="vision-card glass hover-lift">
+                        <div class="vision-icon">❖</div>
+                        <h3>Values</h3>
+                        <p>Transparency in governance, continuity across all initiatives, dignity in every interaction, and direct accountability to every contributor and stakeholder.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- PROGRAMS -->
+            <section id="programs" class="section" data-reveal>
+                <div class="section-header" style="padding: 0 8px;">
+                    <div class="eyebrow">Programs</div>
+                    <h2>Three pillars, one connected path of impact.</h2>
+                    <p class="lede">Each initiative flows from empowerment to education to sustained support — creating lasting change that goes beyond immediate assistance.</p>
+                </div>
+                <div class="program-grid">
+                    <article class="program-card glass hover-lift">
+                        <div class="program-media">
+                            <img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 33vw" alt="Shakti empowerment program" width="900" height="1200" loading="lazy" decoding="async">
+                        </div>
+                        <div class="program-meta">
+                            <span class="chip">Empowerment</span>
+                            <span class="chip">Women</span>
+                        </div>
+                        <h3>Shakti</h3>
+                        <p>Building strength, confidence, and self-reliance through skill development, capacity building, and livelihood pathways for underserved women.</p>
+                    </article>
+                    <article class="program-card glass hover-lift">
+                        <div class="program-media">
+                            <img src="healthcare-800.webp" srcset="healthcare-800.webp 800w, healthcare-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 33vw" alt="Shiksha education program" width="1200" height="800" loading="lazy" decoding="async">
+                        </div>
+                        <div class="program-meta">
+                            <span class="chip">Education</span>
+                            <span class="chip">Youth</span>
+                        </div>
+                        <h3>Shiksha</h3>
+                        <p>Protecting continuity of education for children and youth who face financial, social, or circumstantial barriers to staying in school.</p>
+                    </article>
+                    <article class="program-card glass hover-lift">
+                        <div class="program-media">
+                            <img src="farming-800.webp" srcset="farming-800.webp 800w, farming-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 33vw" alt="Samriddhi well-being program" width="1200" height="800" loading="lazy" decoding="async">
+                        </div>
+                        <div class="program-meta">
+                            <span class="chip">Well-being</span>
+                            <span class="chip">Long-term</span>
+                        </div>
+                        <h3>Samriddhi</h3>
+                        <p>Supporting dignity and long-term well-being through elderly care, extended educational support, continued empowerment, and essential rehabilitation.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- IMPACT STORIES -->
+            <section id="stories" class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Impact Stories</div>
+                    <h2>Voices from the communities we serve.</h2>
+                    <p class="lede">Real stories of empowerment, education, and sustained well-being from individuals whose lives have been touched by Akshaya's initiatives.</p>
+                </div>
+                <div class="stories-grid">
+                    <article class="story-card glass hover-lift">
+                        <div>
+                            <div class="badge">Shakti</div>
+                            <p class="story-quote" style="margin-top:18px;">"The skills training I received through Akshaya gave me the confidence to start my own tailoring work. Today, I support my family with dignity and independence."</p>
+                        </div>
+                        <div class="story-author">
+                            <div class="story-avatar">L</div>
+                            <div>
+                                <strong>Lakshmi</strong>
+                                <p class="muted">Shakti beneficiary, Bangalore</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="story-card glass hover-lift">
+                        <div>
+                            <div class="badge">Shiksha</div>
+                            <p class="story-quote" style="margin-top:18px;">"When my family couldn't afford school fees, Akshaya stepped in. I completed my education and now I'm working towards becoming a teacher myself."</p>
+                        </div>
+                        <div class="story-author">
+                            <div class="story-avatar">R</div>
+                            <div>
+                                <strong>Rahul</strong>
+                                <p class="muted">Shiksha beneficiary, Bangalore</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="story-card glass hover-lift">
+                        <div>
+                            <div class="badge">Samriddhi</div>
+                            <p class="story-quote" style="margin-top:18px;">"After my husband passed, I had no support. Akshaya's continued assistance helped me rebuild my life with sustained care and regular check-ins over two years."</p>
+                        </div>
+                        <div class="story-author">
+                            <div class="story-avatar">M</div>
+                            <div>
+                                <strong>Meena</strong>
+                                <p class="muted">Samriddhi beneficiary, Bangalore</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- NEWS & UPDATES -->
+            <section id="news" class="section" data-reveal>
+                <div class="section-header" style="padding: 0 8px;">
+                    <div class="eyebrow">News & Updates</div>
+                    <h2>Latest from Akshaya Charitable Trust.</h2>
+                    <p class="lede">Stay informed about our recent initiatives, milestones, and community events.</p>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card glass hover-lift">
+                        <span class="news-date">March 2025</span>
+                        <h3>Darpan Registration Completed</h3>
+                        <p>Akshaya Charitable Trust has successfully completed its NGO Darpan registration (KA/2025/0657083), strengthening our compliance and credibility for CSR partnerships.</p>
+                        <div class="program-meta" style="margin-top: auto;">
+                            <span class="chip">Governance</span>
+                        </div>
+                    </article>
+                    <article class="news-card glass hover-lift">
+                        <span class="news-date">February 2025</span>
+                        <h3>80G & 12A Renewal Approved</h3>
+                        <p>The trust's 80G (AALTA6108JF20251) and 12A (AALTA6108JE20251) certifications have been renewed, ensuring tax-deductible donations continue for all supporters.</p>
+                        <div class="program-meta" style="margin-top: auto;">
+                            <span class="chip">Compliance</span>
+                        </div>
+                    </article>
+                    <article class="news-card glass hover-lift">
+                        <span class="news-date">January 2025</span>
+                        <h3>CSR Registration Confirmed</h3>
+                        <p>Akshaya has received its CSR Registration Number (CSR00099254), opening doors for corporate partnerships and structured social responsibility contributions.</p>
+                        <div class="program-meta" style="margin-top: auto;">
+                            <span class="chip">CSR</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- VOLUNTEER / GET INVOLVED -->
+            <section id="volunteer" class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Get Involved</div>
+                    <h2>There are many ways to support the mission.</h2>
+                    <p class="lede">Whether through time, expertise, or resources — every form of support helps Akshaya deliver sustained impact across our three pillars.</p>
+                </div>
+                <div class="volunteer-grid">
+                    <article class="volunteer-card glass hover-lift">
+                        <div class="volunteer-icon">🤝</div>
+                        <h3>Volunteer</h3>
+                        <p>Contribute your time and skills to support our programs across empowerment, education, and community well-being. We welcome volunteers in Bangalore and remotely.</p>
+                        <a class="btn btn-ghost" href="#contact" style="margin-top: auto;">Apply to Volunteer</a>
+                    </article>
+                    <article class="volunteer-card glass hover-lift">
+                        <div class="volunteer-icon">🏢</div>
+                        <h3>Corporate CSR</h3>
+                        <p>Partner with Akshaya through your company's CSR program. We are CSR-registered (CSR00099254) and can provide compliant documentation for all contributions.</p>
+                        <a class="btn btn-ghost" href="#contact" style="margin-top: auto;">CSR Partnership</a>
+                    </article>
+                    <article class="volunteer-card glass hover-lift">
+                        <div class="volunteer-icon">📦</div>
+                        <h3>In-Kind Support</h3>
+                        <p>Donate books, educational materials, clothing, or other essentials directly to our programs. Every contribution is acknowledged and properly documented.</p>
+                        <a class="btn btn-ghost" href="#contact" style="margin-top: auto;">Donate Materials</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- FINANCIAL TRANSPARENCY -->
+            <section id="transparency" class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Financial Transparency</div>
+                    <h2>Every rupee accounted for, every record accessible.</h2>
+                    <p class="lede">Akshaya Charitable Trust is committed to full financial transparency. All statutory registrations, compliance documents, and annual reports are maintained and available for inspection.</p>
+                </div>
+                <div class="transparency-grid">
+                    <article class="transparency-card glass hover-lift">
+                        <h3>Statutory Registrations</h3>
+                        <ul class="support-list" style="margin-top:14px;">
+                            <li>Trust Registration: GAN-4-00049-2013-14</li>
+                            <li>PAN: AALTA6108J</li>
+                            <li>12A Registration: AALTA6108JE20251</li>
+                            <li>80G Registration: AALTA6108JF20251</li>
+                            <li>CSR Number: CSR00099254</li>
+                            <li>NGO Darpan: KA/2025/0657083</li>
+                        </ul>
+                    </article>
+                    <article class="transparency-card glass hover-lift">
+                        <h3>Governance & Accountability</h3>
+                        <ul class="support-list" style="margin-top:14px;">
+                            <li>Founder & President: Saradhamma K</li>
+                            <li>Registered since 2013 in Bangalore</li>
+                            <li>Annual financial statements audited</li>
+                            <li>Direct acknowledgement for every contribution</li>
+                            <li>Compliant with Indian Income Tax Act provisions</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="transparency-highlight">
+                    <h4 style="margin-bottom: 8px;">💡 Tax Benefits Under Section 80G</h4>
+                    <p>Donations to Akshaya Charitable Trust are eligible for tax deduction under Section 80G of the Indian Income Tax Act (80G No: AALTA6108JF20251). Donors receive an official receipt for every contribution.</p>
                 </div>
             </section>
 
@@ -1841,6 +2384,59 @@
                     </article>
                 </div>
             </section>
+
+            <!-- FAQ -->
+            <section id="faq" class="section glass section-space" data-reveal>
+                <div class="section-header">
+                    <div class="eyebrow">Frequently Asked</div>
+                    <h2>Common questions about Akshaya Charitable Trust.</h2>
+                </div>
+                <div class="faq-grid">
+                    <details class="faq-item glass hover-lift">
+                        <summary>
+                            <span>Are donations tax-deductible?</span>
+                            <span>+</span>
+                        </summary>
+                        <p>Yes. Akshaya Charitable Trust holds a valid 80G registration (AALTA6108JF20251). All donations are eligible for tax deduction under Section 80G of the Indian Income Tax Act. An official receipt is issued for every contribution.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>
+                            <span>How are funds used?</span>
+                            <span>+</span>
+                        </summary>
+                        <p>Funds are directed towards three pillars — Shakti (empowerment), Shiksha (education), and Samriddhi (sustained well-being). The trust maintains audited financial statements and provides direct accountability for all contributions.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>
+                            <span>How can I verify the trust?</span>
+                            <span>+</span>
+                        </summary>
+                        <p>You can verify Akshaya through its registration (GAN-4-00049-2013-14), PAN (AALTA6108J), NGO Darpan (KA/2025/0657083), or by contacting us directly at 9844834103 or hope.akshaya@gmail.com.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>
+                            <span>Can I volunteer remotely?</span>
+                            <span>+</span>
+                        </summary>
+                        <p>Yes. While many of our programs are Bangalore-based, we welcome remote volunteers who can contribute through content creation, mentoring, digital support, and awareness campaigns.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>
+                            <span>Does Akshaya accept CSR contributions?</span>
+                            <span>+</span>
+                        </summary>
+                        <p>Absolutely. Akshaya holds a valid CSR Registration (CSR00099254) and is equipped to provide all compliance documentation required for corporate CSR partnerships.</p>
+                    </details>
+                    <details class="faq-item glass hover-lift">
+                        <summary>
+                            <span>How does the trust ensure accountability?</span>
+                            <span>+</span>
+                        </summary>
+                        <p>Through direct acknowledgement for every contribution, audited annual financial statements, clear governance structures, and maintaining full statutory compliance including 12A, 80G, and NGO Darpan registrations.</p>
+                    </details>
+                </div>
+            </section>
+
             <section id="contact" class="section section-grid contact-grid" data-reveal>
                 <article class="contact-card glass section-space hover-lift">
                     <div class="section-header" style="margin-bottom: 18px;">
@@ -1907,14 +2503,33 @@
                         <div class="brand-subtitle">Shakti · Shiksha · Samriddhi</div>
                     </div>
                 </div>
+                <p class="muted" style="margin-top:12px; max-width:400px;">Registered public charitable trust empowering communities through education, empowerment, and sustained well-being since 2013.</p>
             </div>
             <div class="footer-links">
+                <a href="#story">Our Story</a>
+                <a href="#programs">Programs</a>
+                <a href="#stories">Stories</a>
+                <a href="#volunteer">Get Involved</a>
+                <a href="#transparency">Transparency</a>
                 <a href="#about">About</a>
                 <a href="#giving">Give</a>
+                <a href="#faq">FAQ</a>
                 <a href="#contact">Contact</a>
             </div>
-            <p class="muted">Reg. No. GAN-4-00049-2013-14 | Email: hope.akshaya@gmail.com | CSR00099254</p>
+            <div class="footer-social">
+                <a href="mailto:hope.akshaya@gmail.com" aria-label="Email">✉</a>
+                <a href="tel:+919844834103" aria-label="Phone">☎</a>
+                <a href="tel:+918861438805" aria-label="Phone 2">📞</a>
+            </div>
+            <div class="footer-bottom">
+                <p class="muted">Reg. No. GAN-4-00049-2013-14 | PAN: AALTA6108J | CSR: CSR00099254</p>
+                <p class="muted">© 2025 Akshaya Charitable Trust. All rights reserved.</p>
+            </div>
         </footer>
+
+        <div class="mobile-sticky-cta">
+            <a class="btn btn-primary btn-donate" href="#giving"><span>Support the Trust</span></a>
+        </div>
     </div>
 
     <script>
@@ -2109,6 +2724,31 @@
                 button.textContent = original;
                 button.disabled = false;
             }, 2200);
+        });
+
+        /* --- HAMBURGER DRAWER --- */
+        const hamburger = document.querySelector('.hamburger');
+        const drawerBackdrop = document.querySelector('.drawer-backdrop');
+        const drawer = document.querySelector('.drawer');
+
+        function toggleDrawer(open) {
+            const isOpen = open ?? root.dataset.drawer !== 'open';
+            root.dataset.drawer = isOpen ? 'open' : 'closed';
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            if (isOpen) {
+                drawerBackdrop.classList.add('is-active');
+            } else {
+                drawerBackdrop.classList.remove('is-active');
+            }
+        }
+
+        hamburger?.addEventListener('click', () => toggleDrawer());
+
+        drawerBackdrop?.addEventListener('click', () => toggleDrawer(false));
+
+        drawer?.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => toggleDrawer(false));
         });
     </script>
 </body>
