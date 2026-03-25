@@ -1477,8 +1477,9 @@
             .nav {
                 border-radius: 34px;
                 padding: 14px;
-                align-items: flex-start;
-                flex-direction: column;
+                align-items: center;
+                flex-direction: row;
+                justify-content: space-between;
                 will-change: auto;
             }
 
@@ -1492,10 +1493,19 @@
                 border-color: var(--line);
             }
 
-            .nav-links,
+            .nav-links {
+                display: none;
+            }
+
             .nav-actions {
-                width: 100%;
-                justify-content: flex-start;
+                width: auto;
+                justify-content: flex-end;
+                margin-left: auto;
+            }
+
+            .nav-actions .btn {
+                padding: 12px 18px;
+                min-height: 48px;
             }
 
             .hero-card,
@@ -1591,6 +1601,30 @@
                 padding: 20px;
             }
 
+            .brand-subtitle {
+                display: none;
+            }
+
+            .nav {
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .brand-mark {
+                width: 46px;
+                height: 46px;
+                border-radius: 15px;
+            }
+
+            .brand-title {
+                font-size: 0.92rem;
+            }
+
+            .nav-actions .btn {
+                padding: 11px 15px;
+                font-size: 0.88rem;
+            }
+
             .hero-actions,
             .mini-actions {
                 flex-direction: column;
@@ -1627,9 +1661,7 @@
                     </div>
                 </div>
                 <div class="nav-links">
-                    <a href="#impact">Impact</a>
-                    <a href="#programs">Programs</a>
-                    <a href="#cinema">Journey</a>
+                    <a href="#about">About</a>
                     <a href="#giving">Give</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -1652,7 +1684,7 @@
                         <div class="hero-actions">
                             <a class="btn btn-primary btn-donate" href="#giving"><span>Support the Trust</span></a>
                             <a class="btn btn-secondary" href="#contact">Verify Trust Details</a>
-                            <a class="btn btn-ghost" href="#cinema">Explore the Philosophy</a>
+                            <a class="btn btn-ghost" href="#about">Trust Snapshot</a>
                         </div>
                         <div class="hero-metrics">
                             <div class="metric-chip glass">
@@ -1711,202 +1743,54 @@
                 </div>
             </section>
 
-            <section id="impact" class="section glass section-space" data-reveal>
+            <section id="about" class="section glass section-space" data-reveal>
                 <div class="section-header">
                     <div class="eyebrow">Trust snapshot</div>
-                    <h2>Clear facts, clear purpose, clear accountability.</h2>
-                    <p class="lede">Akshaya Charitable Trust is a registered public charitable trust working through three connected pillars: Shakti, Shiksha, and Samriddhi.</p>
+                    <h2>Three pillars, verified details, and official channels in one place.</h2>
+                    <p class="lede">Akshaya Charitable Trust works through Shakti, Shiksha, and Samriddhi while keeping governance, compliance, and donor communication direct and accountable.</p>
                 </div>
                 <div class="impact-grid">
                     <article class="impact-card glass hover-lift">
+                        <div class="impact-value" data-count="3">0</div>
+                        <div class="impact-label">guiding pillars</div>
+                        <p style="margin-top:12px;">Shakti supports empowerment, Shiksha supports education, and Samriddhi supports long-term stability.</p>
+                    </article>
+                    <article class="impact-card glass hover-lift">
                         <div class="impact-value" data-count="1">0</div>
                         <div class="impact-label">registered trust</div>
-                        <p style="margin-top:12px;">Officially registered public charitable trust with clear legal standing and oversight.</p>
-                    </article>
-                    <article class="impact-card glass hover-lift">
-                        <div class="impact-value" data-count="3">0</div>
-                        <div class="impact-label">core pillars</div>
-                        <p style="margin-top:12px;">Shakti builds strength, Shiksha supports learning continuity, and Samriddhi sustains long-term well-being.</p>
-                    </article>
-                    <article class="impact-card glass hover-lift">
-                        <div class="impact-value" data-count="2">0</div>
-                        <div class="impact-label">official addresses</div>
-                        <p style="margin-top:12px;">Registered office at Sunkalpet Main Road and office address at Ramanna Pet, J.M. Road Cross, Bangalore 02.</p>
+                        <p style="margin-top:12px;">Officially registered public charitable trust with clear governance and formal compliance records.</p>
                     </article>
                     <article class="impact-card glass hover-lift">
                         <div class="impact-value" data-count="2">0</div>
                         <div class="impact-label">official phone lines</div>
-                        <p style="margin-top:12px;">Stakeholders are encouraged to contact the trust directly at 9844834103 or 8861438805 for verification or clarification.</p>
+                        <p style="margin-top:12px;">Stakeholders can contact the trust directly at 9844834103 or 8861438805 for verification or support.</p>
+                    </article>
+                    <article class="impact-card glass hover-lift">
+                        <div class="impact-value" data-count="2">0</div>
+                        <div class="impact-label">official addresses</div>
+                        <p style="margin-top:12px;">The trust publishes both its registered address and office address in Bangalore for direct verification.</p>
                     </article>
                 </div>
-            </section>
-            <section class="section section-grid proof-grid">
-                <article class="glass section-space hover-lift" data-reveal>
-                    <div class="section-header" style="margin-bottom:22px;">
-                        <div class="eyebrow">Compliance and identity</div>
-                        <h2>Every official identifier is visible and verifiable.</h2>
-                    </div>
-                    <p class="lede">The trust documents shared in the PDFs clearly establish Akshaya's legal identity, official channels, and commitment to accountable giving.</p>
-                    <div class="proof-board" style="margin-top:24px;">
-                        <div class="proof-panel glass">
-                            <h3>Registration and compliance</h3>
-                            <ul class="support-list">
-                                <li>Reg. No: GAN-4-00049-2013-14</li>
-                                <li>PAN: AALTA6108J</li>
-                                <li>12A No: AALTA6108JE20251</li>
-                                <li>80G No: AALTA6108JF20251</li>
-                                <li>Darpan No: KA/2025/0657083</li>
-                                <li>CSR Number: CSR00099254</li>
-                            </ul>
-                        </div>
-                        <div class="proof-panel glass">
-                            <h3>Official channels only</h3>
-                            <ul class="support-list">
-                                <li>Email: hope.akshaya@gmail.com</li>
-                                <li>Website: theakshayafoundation.org</li>
-                                <li>Phones: 9844834103, 8861438805</li>
-                                <li>Founder & President: Saradhamma K</li>
-                                <li>Registered Address: #77 Venkateshwara Nilaya, Sunkalpet Main Road, Bangalore 02</li>
-                                <li>Office Address: #40/A Ramanna Pet, J.M Road Cross, Bangalore 02</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-                <article class="glass section-space hover-lift" data-reveal>
-                    <div class="eyebrow">Accountability</div>
-                    <div class="support-grid" style="grid-template-columns:1fr;">
-                        <div class="support-card glass">
-                            <h3>Commitment to accountability</h3>
-                            <p>Trust and transparency are central to Akshaya's mission. The trust states that it upholds the highest standards of governance and accountability in all its operations.</p>
-                            <ul class="support-list">
-                                <li>Clear governance with defined roles and oversight mechanisms</li>
-                                <li>Transparent accounting and responsible financial reporting</li>
-                                <li>Donations accepted only through official trust channels</li>
-                                <li>Volunteers engaged for outreach and awareness, never for fund collection</li>
-                                <li>Receipts and acknowledgements issued directly by the trust</li>
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-            </section>
-
-            <section id="programs" class="section glass section-space" data-reveal>
-                <div class="section-header">
-                    <div class="eyebrow">Programs</div>
-                    <h2>Three pillars guide every initiative of the trust.</h2>
-                    <p class="lede">The trust's work follows one connected pathway: building strength, protecting learning continuity, and sustaining dignity over time.</p>
-                </div>
-                <div class="program-grid">
-                    <article class="program-card glass hover-lift">
-                        <div class="program-media"><img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 33vw" alt="Children in a classroom" width="1200" height="900" loading="lazy" decoding="async"></div>
-                        <div class="program-meta">
-                            <span class="chip">Shakti</span>
-                            <span class="chip">Women Empowerment</span>
-                            <span class="chip">Self-Reliance</span>
-                        </div>
-                        <h3>Shakti builds strength, confidence, and self-reliance.</h3>
-                        <p>Shakti focuses on empowering individuals, especially women, through skill development, capacity building, and livelihood-oriented support.</p>
-                        <div class="mini-actions"><a class="btn btn-ghost" href="#giving">Support Shakti</a></div>
+                <div class="section-grid" style="margin-top:24px;">
+                    <article class="glass section-space hover-lift" data-reveal>
+                        <div class="eyebrow">Programs</div>
+                        <h3>Akshaya works through one connected path.</h3>
+                        <p class="lede" style="margin-top:10px;">Empowerment first, education next, and sustained support throughout.</p>
+                        <ul class="support-list" style="margin-top:18px;">
+                            <li>Shakti builds strength, confidence, and self-reliance</li>
+                            <li>Shiksha protects continuity of education for children and youth</li>
+                            <li>Samriddhi supports dignity and long-term well-being over time</li>
+                        </ul>
                     </article>
-                    <article class="program-card glass hover-lift">
-                        <div class="program-media"><img src="healthcare-1200.webp" srcset="healthcare-800.webp 800w, healthcare-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 33vw" alt="Healthcare outreach in a rural community" width="1200" height="900" loading="lazy" decoding="async"></div>
-                        <div class="program-meta">
-                            <span class="chip">Shiksha</span>
-                            <span class="chip">Education</span>
-                            <span class="chip">Learning Continuity</span>
-                        </div>
-                        <h3>Shiksha protects access to education and continuity of learning.</h3>
-                        <p>Shiksha supports children and youth facing financial, social, or circumstantial barriers so that learning can continue with stability and purpose.</p>
-                        <div class="mini-actions"><a class="btn btn-ghost" href="#giving">Support Shiksha</a></div>
-                    </article>
-                    <article class="program-card glass hover-lift">
-                        <div class="program-media"><img src="farming-1200.webp" srcset="farming-800.webp 800w, farming-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 33vw" alt="Farmers in a field" width="1200" height="900" loading="lazy" decoding="async"></div>
-                        <div class="program-meta">
-                            <span class="chip">Samriddhi</span>
-                            <span class="chip">Long-Term Support</span>
-                            <span class="chip">Well-Being</span>
-                        </div>
-                        <h3>Samriddhi sustains dignity, continuity, and long-term well-being.</h3>
-                        <p>Samriddhi supports individuals who need ongoing care over time, including extended educational support, continued empowerment, elderly care, and help through prolonged life-stage challenges.</p>
-                        <div class="mini-actions"><a class="btn btn-ghost" href="#giving">Support Samriddhi</a></div>
-                    </article>
-                </div>
-            </section>
-
-            <section id="cinema" class="section cinema-section" aria-label="Scroll cinema">
-                <div class="cinema-stage glass" data-reveal>
-                    <div class="cinema-visual hover-lift">
-                        <div class="cinema-layer active" data-scene="0"><img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 50vw" alt="Students supported by the trust" width="900" height="1200" loading="lazy" decoding="async"></div>
-                        <div class="cinema-layer" data-scene="1"><img src="healthcare-1200.webp" srcset="healthcare-800.webp 800w, healthcare-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Healthcare workers in the field" width="1200" height="900" loading="lazy" decoding="async"></div>
-                        <div class="cinema-layer" data-scene="2"><img src="farming-1200.webp" srcset="farming-800.webp 800w, farming-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Agricultural prosperity programs" width="1200" height="900" loading="lazy" decoding="async"></div>
-                        <div class="cinema-overlay">
-                            <div class="play-pill"><span class="play-dot"></span> Shakti · Shiksha · Samriddhi</div>
-                            <p style="color:#fff; max-width: 520px;">Together, these three pillars form a complete pathway to sustained social impact, transforming lives with compassion and commitment.</p>
-                        </div>
-                    </div>
-                    <div class="cinema-copy">
-                        <div>
-                            <div class="eyebrow">Guiding philosophy</div>
-                            <h2>One journey. Three connected pillars.</h2>
-                            <p class="lede">Akshaya's approach is structured around a movement from inner strength to learning continuity to long-term stability, creating lasting change in people's lives.</p>
-                        </div>
-                        <div class="cinema-steps">
-                            <article class="cinema-step active" data-copy-step="0">
-                                <h3>Shakti</h3>
-                                <p>Building strength, confidence, and self-reliance through empowerment initiatives.</p>
-                            </article>
-                            <article class="cinema-step" data-copy-step="1">
-                                <h3>Shiksha</h3>
-                                <p>Creating access to education and ensuring continuity of learning for children and youth.</p>
-                            </article>
-                            <article class="cinema-step" data-copy-step="2">
-                                <h3>Samriddhi</h3>
-                                <p>Enabling continuity, dignity, and sustained well-being for individuals who need support over time.</p>
-                            </article>
-                        </div>
-                        <div class="mini-actions">
-                            <a class="btn btn-secondary" href="#giving">Support the Mission</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section glass section-space" data-reveal>
-                <div class="section-header">
-                    <div class="eyebrow">Who the trust serves</div>
-                    <h2>The trust focuses on people facing real barriers to dignity and stability.</h2>
-                    <p class="lede">The PDF introduces the communities Akshaya supports across empowerment, education, and sustained care.</p>
-                </div>
-                <div class="stories-grid">
-                    <article class="story-card glass hover-lift">
-                        <p class="story-quote">"Women from vulnerable backgrounds seeking opportunities for growth, skill development, and pathways to self-reliance."</p>
-                        <div class="story-author">
-                            <div class="story-avatar">S</div>
-                            <div>
-                                <strong>Shakti</strong>
-                                <p class="muted">Empowerment and self-reliance</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="story-card glass hover-lift">
-                        <p class="story-quote">"Children and youth facing financial, social, or circumstantial barriers to education and continuity of learning."</p>
-                        <div class="story-author">
-                            <div class="story-avatar">E</div>
-                            <div>
-                                <strong>Shiksha</strong>
-                                <p class="muted">Education and learning continuity</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="story-card glass hover-lift">
-                        <p class="story-quote">"Individuals requiring ongoing assistance to achieve dignity and stability, including elderly care and prolonged life-stage support."</p>
-                        <div class="story-author">
-                            <div class="story-avatar">W</div>
-                            <div>
-                                <strong>Samriddhi</strong>
-                                <p class="muted">Sustained support and well-being</p>
-                            </div>
-                        </div>
+                    <article class="glass section-space hover-lift" data-reveal>
+                        <div class="eyebrow">Official details</div>
+                        <h3>Every contribution should come through official trust channels only.</h3>
+                        <ul class="support-list" style="margin-top:18px;">
+                            <li>Reg. No: GAN-4-00049-2013-14</li>
+                            <li>PAN: AALTA6108J | CSR Number: CSR00099254</li>
+                            <li>12A No: AALTA6108JE20251 | 80G No: AALTA6108JF20251</li>
+                            <li>Email: hope.akshaya@gmail.com | Phones: 9844834103, 8861438805</li>
+                        </ul>
                     </article>
                 </div>
             </section>
@@ -1957,64 +1841,6 @@
                     </article>
                 </div>
             </section>
-            <section class="section section-grid support-grid" data-reveal>
-                <article class="support-card glass hover-lift">
-                    <div class="eyebrow">Governance</div>
-                    <h3>Officially registered and directly accountable.</h3>
-                    <p>Akshaya presents itself as a registered public charitable trust with clear legal standing, structured governance, and direct documentation for contributions.</p>
-                    <ul class="governance-list">
-                        <li>Reg. No: GAN-4-00049-2013-14</li>
-                        <li>PAN: AALTA6108J</li>
-                        <li>CSR Number: CSR00099254</li>
-                    </ul>
-                </article>
-                <article class="support-card glass hover-lift">
-                    <div class="eyebrow">Documentation</div>
-                    <h3>Every contribution should come through official channels only.</h3>
-                    <p>The PDFs clearly state that donations are accepted exclusively through official trust channels and receipts are issued directly by the trust.</p>
-                    <ul class="governance-list">
-                        <li>12A No: AALTA6108JE20251</li>
-                        <li>80G No: AALTA6108JF20251</li>
-                        <li>Darpan No: KA/2025/0657083</li>
-                    </ul>
-                </article>
-                <article class="support-card glass hover-lift">
-                    <div class="eyebrow">Direct contact</div>
-                    <h3>Stakeholders are encouraged to contact the trust directly.</h3>
-                    <p>The trust invites donors, well-wishers, and stakeholders to reach out for information, verification, or clarification through its official contact points.</p>
-                    <ul class="governance-list">
-                        <li>Email: hope.akshaya@gmail.com</li>
-                        <li>Phones: 9844834103 and 8861438805</li>
-                        <li>Website: theakshayafoundation.org</li>
-                    </ul>
-                </article>
-            </section>
-
-            <section class="section glass section-space" data-reveal>
-                <div class="section-header">
-                    <div class="eyebrow">Questions</div>
-                    <h2>Important questions, answered from the trust documents.</h2>
-                </div>
-                <div class="faq-grid">
-                    <details class="faq-item glass hover-lift" open>
-                        <summary>How does the trust receive support?<span>+</span></summary>
-                        <p>All support, if extended, is received only through official trust channels and utilised responsibly. Receipts and acknowledgements are issued directly by the trust.</p>
-                    </details>
-                    <details class="faq-item glass hover-lift">
-                        <summary>What official records identify Akshaya Charitable Trust?<span>+</span></summary>
-                        <p>Akshaya shares its registration number, PAN, 12A, 80G, and Darpan details, and the CSR number provided for this site is CSR00099254.</p>
-                    </details>
-                    <details class="faq-item glass hover-lift">
-                        <summary>Who should contact the trust for verification or clarification?<span>+</span></summary>
-                        <p>Stakeholders are encouraged to contact the trust directly by email or phone for information, verification, or clarification.</p>
-                    </details>
-                    <details class="faq-item glass hover-lift">
-                        <summary>What does Samriddhi mean in Akshaya's work?<span>+</span></summary>
-                        <p>Samriddhi represents continuity, stability, and long-term well-being through sustained support for those who need assistance over time.</p>
-                    </details>
-                </div>
-            </section>
-
             <section id="contact" class="section section-grid contact-grid" data-reveal>
                 <article class="contact-card glass section-space hover-lift">
                     <div class="section-header" style="margin-bottom: 18px;">
@@ -2083,8 +1909,7 @@
                 </div>
             </div>
             <div class="footer-links">
-                <a href="#impact">Impact</a>
-                <a href="#programs">Programs</a>
+                <a href="#about">About</a>
                 <a href="#giving">Give</a>
                 <a href="#contact">Contact</a>
             </div>
