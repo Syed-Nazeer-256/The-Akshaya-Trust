@@ -7,6 +7,7 @@
     <meta name="description"
         content="Akshaya Charitable Trust is a registered public charitable trust guided by Shakti, Shiksha, and Samriddhi: empowerment, education, and sustained well-being delivered with transparency and continuity." />
     <meta name="theme-color" content="#f6efe7" />
+    <meta name="color-scheme" content="light" />
     <title>Akshaya Charitable Trust | Shakti · Shiksha · Samriddhi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,7 @@
     <!-- PERFORMANCE OPTIMIZED: preload compressed hero image for faster LCP -->
     <link rel="preload" as="image" href="hero-900.webp" imagesrcset="hero-600.webp 600w, hero-900.webp 900w" imagesizes="(max-width: 860px) 100vw, 50vw" type="image/webp">
     <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
         rel="stylesheet">
     <style>
         * {
@@ -90,6 +91,24 @@
             transition: background 1000ms var(--ease-standard), color 400ms ease;
         }
 
+        body::selection {
+            background: rgba(111, 48, 48, 0.16);
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            transform-origin: 0 50%;
+            transform: scaleX(var(--scroll-progress, 0));
+            background: linear-gradient(90deg, var(--secondary), var(--primary), var(--secondary-strong));
+            box-shadow: 0 0 18px rgba(216, 170, 67, 0.28);
+            z-index: 120;
+            pointer-events: none;
+        }
+
         body::before {
             content: "";
             position: fixed;
@@ -160,6 +179,22 @@
             transform: none;
         }
 
+        html[data-bandwidth="low"] body::before,
+        html[data-bandwidth="low"] body::after,
+        html[data-bandwidth="low"] .page-shell::before,
+        html[data-bandwidth="low"] .page-shell::after,
+        html[data-bandwidth="low"] .glass::before,
+        html[data-bandwidth="low"] .scroll-progress {
+            display: none;
+        }
+
+        html[data-bandwidth="low"] .glass,
+        html[data-bandwidth="low"] .glass .glass,
+        html[data-bandwidth="low"] .play-pill {
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+        }
+
         .section,
         .section-grid,
         .cinema-section,
@@ -170,6 +205,19 @@
 
         .hero {
             content-visibility: visible;
+        }
+
+        .hero-card,
+        .hero-visual,
+        .hero-floating,
+        .story-card,
+        .impact-card,
+        .tier,
+        .support-card,
+        .faq-item,
+        .contact-card,
+        .cinema-stage {
+            contain: layout paint;
         }
 
         @keyframes atmospheric-drift {
@@ -475,6 +523,20 @@
             padding-top: 4px;
         }
 
+        .nav-wrap::after {
+            content: "";
+            position: absolute;
+            inset: auto 16px -8px 16px;
+            height: 26px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(111, 48, 48, 0.14), transparent 72%);
+            filter: blur(18px);
+            opacity: 0;
+            transition: opacity 400ms ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+
         .nav {
             min-height: var(--nav-height);
             display: flex;
@@ -483,6 +545,20 @@
             gap: 24px;
             border-radius: 999px;
             padding: 10px 14px 10px 22px;
+            transition: padding 400ms var(--ease-standard), background 400ms ease, box-shadow 400ms ease, border-color 400ms ease;
+            will-change: padding;
+        }
+
+        html[data-nav="compact"] .nav-wrap::after {
+            opacity: 1;
+        }
+
+        html[data-nav="compact"] .nav {
+            padding: 8px 12px 8px 18px;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                0 16px 34px rgba(47, 27, 26, 0.14);
+            border-color: rgba(255, 255, 255, 0.66);
         }
 
         .brand {
@@ -573,8 +649,71 @@
             transition: transform 450ms var(--ease-standard), box-shadow 450ms var(--ease-standard), background 350ms ease, color 350ms ease;
         }
 
+        .btn-primary,
+        .btn-secondary {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::after,
+        .btn-secondary::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 18%, rgba(255, 255, 255, 0.26) 50%, transparent 82%);
+            transform: translateX(-130%);
+            transition: transform 900ms var(--ease-standard);
+            pointer-events: none;
+        }
+
         .btn:hover {
             transform: translateY(-3px);
+        }
+
+        .btn-primary:hover::after,
+        .btn-secondary:hover::after {
+            transform: translateX(130%);
+        }
+
+        .btn-donate {
+            isolation: isolate;
+        }
+
+        .btn-donate::before {
+            content: "";
+            position: absolute;
+            inset: -18% -32%;
+            background:
+                radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1px, transparent 1.6px) 12% 28% / 28px 28px,
+                radial-gradient(circle, rgba(255, 248, 219, 0.75) 0 1px, transparent 1.6px) 58% 42% / 34px 34px,
+                radial-gradient(circle, rgba(255, 255, 255, 0.72) 0 1px, transparent 1.6px) 82% 22% / 26px 26px;
+            opacity: 0;
+            transform: translate3d(-12%, 0, 0);
+            transition: opacity 280ms ease;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: 0;
+        }
+
+        .btn-donate > span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-donate:hover::before,
+        .btn-donate:focus-visible::before {
+            opacity: 1;
+            animation: donate-glitter 1800ms linear infinite;
+        }
+
+        @keyframes donate-glitter {
+            0% {
+                transform: translate3d(-12%, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(12%, 0, 0);
+            }
         }
 
         .btn-primary {
@@ -621,6 +760,18 @@
                 linear-gradient(160deg, color-mix(in srgb, var(--surface-strong) 78%, white 22%), var(--surface));
         }
 
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: inherit;
+            pointer-events: none;
+            background:
+                linear-gradient(135deg, rgba(216, 170, 67, 0.18), transparent 34%),
+                radial-gradient(circle at 88% 18%, rgba(111, 48, 48, 0.16), transparent 24%);
+            opacity: 0.8;
+        }
+
         .hero-card::after {
             content: "";
             position: absolute;
@@ -663,6 +814,10 @@
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.32),
                 0 14px 28px rgba(255, 255, 255, 0.04);
+        }
+
+        .metric-chip strong {
+            text-wrap: balance;
         }
 
         .metric-chip strong {
@@ -1324,6 +1479,17 @@
                 padding: 14px;
                 align-items: flex-start;
                 flex-direction: column;
+                will-change: auto;
+            }
+
+            .nav-wrap::after {
+                display: none;
+            }
+
+            html[data-nav="compact"] .nav {
+                padding: 14px;
+                box-shadow: none;
+                border-color: var(--line);
             }
 
             .nav-links,
@@ -1388,6 +1554,10 @@
                 -webkit-backdrop-filter: none;
             }
 
+            .scroll-progress {
+                height: 3px;
+            }
+
             .hero-metrics,
             .impact-grid,
             .support-grid,
@@ -1434,12 +1604,17 @@
             .hero-metrics {
                 gap: 12px;
             }
+
+            .scroll-progress {
+                height: 2px;
+            }
         }
     </style>
 </head>
 
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <div class="page-shell">
         <div class="nav-wrap">
@@ -1459,7 +1634,7 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="nav-actions">
-                    <a class="btn btn-primary" href="#giving">Support the Trust</a>
+                    <a class="btn btn-primary btn-donate" href="#giving"><span>Support the Trust</span></a>
                 </div>
             </nav>
         </div>
@@ -1475,7 +1650,7 @@
                     </div>
                     <div>
                         <div class="hero-actions">
-                            <a class="btn btn-primary" href="#giving">Support the Trust</a>
+                            <a class="btn btn-primary btn-donate" href="#giving"><span>Support the Trust</span></a>
                             <a class="btn btn-secondary" href="#contact">Verify Trust Details</a>
                             <a class="btn btn-ghost" href="#cinema">Explore the Philosophy</a>
                         </div>
@@ -1927,16 +2102,20 @@
         const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
         const compactViewportQuery = window.matchMedia('(max-width: 860px)');
         const coarsePointerQuery = window.matchMedia('(pointer: coarse)');
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         const hoverOk = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
         let parallaxFrame = false;
         let scrollFrame = false;
+        let navCompact = false;
         let pointerX = window.innerWidth / 2;
         let pointerY = window.innerHeight / 2;
 
         function syncExperienceMode() {
             const liteMotion = reducedMotionQuery.matches || compactViewportQuery.matches || coarsePointerQuery.matches;
+            const lowBandwidth = Boolean(connection?.saveData) || /^(slow-2g|2g|3g)$/i.test(connection?.effectiveType || '');
             root.dataset.motion = liteMotion ? 'lite' : 'full';
             root.dataset.cinema = compactViewportQuery.matches ? 'stack' : 'scroll';
+            root.dataset.bandwidth = lowBandwidth ? 'low' : 'standard';
 
             if (liteMotion) {
                 root.style.setProperty('--parallax-x', '0px');
@@ -1954,16 +2133,24 @@
 
         syncExperienceMode();
 
-        const revealObserver = new IntersectionObserver((entries) => {
+        const revealObserver = motionEnabled() ? new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
                 entry.target.classList.add('is-visible');
                 entry.target.querySelectorAll('[data-count]').forEach((item) => animateCount(item));
                 revealObserver.unobserve(entry.target);
             });
-        }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }) : null;
 
-        revealItems.forEach((item) => revealObserver.observe(item));
+        revealItems.forEach((item) => {
+            if (revealObserver) {
+                revealObserver.observe(item);
+                return;
+            }
+
+            item.classList.add('is-visible');
+            item.querySelectorAll('[data-count]').forEach((count) => animateCount(count));
+        });
 
         function animateCount(node) {
             if (node.dataset.done) return;
@@ -2014,6 +2201,20 @@
         updateCinema();
         function syncOnScroll() {
             scrollFrame = false;
+            const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+            const progress = Math.min(window.scrollY / scrollable, 1);
+            const progressValue = progress.toFixed(4);
+            const shouldCompactNav = window.scrollY > 24 && !compactViewportQuery.matches;
+
+            if (root.style.getPropertyValue('--scroll-progress') !== progressValue) {
+                root.style.setProperty('--scroll-progress', progressValue);
+            }
+
+            if (navCompact !== shouldCompactNav) {
+                navCompact = shouldCompactNav;
+                root.dataset.nav = navCompact ? 'compact' : 'resting';
+            }
+
             updateCinema();
             if (motionEnabled()) paintParallax();
         }
@@ -2050,6 +2251,8 @@
         if (motionEnabled()) {
             paintParallax();
         }
+
+        syncOnScroll();
 
         if (hoverOk) {
             hoverTargets.forEach((card) => {
