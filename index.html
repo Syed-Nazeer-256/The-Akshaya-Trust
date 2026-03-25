@@ -87,7 +87,7 @@
                 radial-gradient(circle at 50% 82%, var(--mesh-3), transparent 28%),
                 var(--bg);
             color: var(--text);
-            transition: background 700ms var(--ease-standard), color 300ms ease;
+            transition: background 1000ms var(--ease-standard), color 400ms ease;
         }
 
         body::before {
@@ -102,7 +102,7 @@
             mix-blend-mode: soft-light;
             opacity: 0.75;
             z-index: -3;
-            animation: atmospheric-drift 28s ease-in-out infinite alternate;
+            animation: atmospheric-drift 44s ease-in-out infinite alternate;
             transform: translate3d(calc(var(--parallax-x, 0px) * 0.12), calc(var(--parallax-y, 0px) * 0.12), 0);
         }
 
@@ -116,6 +116,48 @@
             opacity: 0.25;
             z-index: -2;
             transform: translate3d(calc(var(--parallax-x, 0px) * -0.08), calc(var(--parallax-y, 0px) * -0.08), 0);
+        }
+
+        html[data-motion="lite"] body::before,
+        html[data-motion="lite"] body::after,
+        html[data-motion="lite"] .page-shell::before,
+        html[data-motion="lite"] .page-shell::after {
+            animation: none;
+            transform: none;
+        }
+
+        html[data-motion="lite"] .glass,
+        html[data-motion="lite"] .glass .glass,
+        html[data-motion="lite"] .play-pill {
+            backdrop-filter: blur(14px) saturate(120%);
+            -webkit-backdrop-filter: blur(14px) saturate(120%);
+        }
+
+        html[data-motion="lite"] .glass,
+        html[data-motion="lite"] .glass::before,
+        html[data-motion="lite"] .play-dot {
+            animation: none;
+        }
+
+        html[data-motion="lite"] .hover-lift,
+        html[data-motion="lite"] .btn,
+        html[data-motion="lite"] .nav-links a,
+        html[data-motion="lite"] .cinema-step,
+        html[data-motion="lite"] .hero-media img,
+        html[data-motion="lite"] [data-reveal] {
+            transition-duration: 0ms !important;
+        }
+
+        html[data-motion="lite"] [data-reveal] {
+            opacity: 1;
+            transform: none;
+            filter: none;
+        }
+
+        html[data-motion="lite"] .hero-media img,
+        html[data-motion="lite"] .cinema-layer,
+        html[data-motion="lite"] .cinema-layer.active {
+            transform: none;
         }
 
         .section,
@@ -195,7 +237,7 @@
             top: 12%;
             right: 6%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 68%);
-            animation: orb-float-a 28s ease-in-out infinite alternate;
+            animation: orb-float-a 42s ease-in-out infinite alternate;
         }
 
         .page-shell::after {
@@ -204,7 +246,7 @@
             bottom: 8%;
             left: 4%;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 72%);
-            animation: orb-float-b 34s ease-in-out infinite alternate;
+            animation: orb-float-b 50s ease-in-out infinite alternate;
         }
 
         @keyframes orb-float-a {
@@ -242,12 +284,12 @@
                 inset 0 -28px 42px rgba(0, 0, 0, 0.04),
                 0 12px 32px rgba(255, 255, 255, 0.05),
                 var(--shadow-soft);
-            backdrop-filter: blur(30px) saturate(155%);
-            -webkit-backdrop-filter: blur(30px) saturate(155%);
+            backdrop-filter: blur(24px) saturate(145%);
+            -webkit-backdrop-filter: blur(24px) saturate(145%);
             transform-style: preserve-3d;
             isolation: isolate;
             background-size: 140% 140%, 100% 100%, 100% 100%;
-            animation: pane-breathe 26s ease-in-out infinite alternate;
+            animation: pane-breathe 42s ease-in-out infinite alternate;
         }
 
         .glass::before {
@@ -262,7 +304,7 @@
             opacity: 0.9;
             pointer-events: none;
             z-index: 0;
-            animation: caustic-shift 24s ease-in-out infinite alternate;
+            animation: caustic-shift 38s ease-in-out infinite alternate;
         }
 
         .glass::after {
@@ -286,8 +328,8 @@
         }
 
         .glass .glass {
-            backdrop-filter: blur(24px) saturate(145%);
-            -webkit-backdrop-filter: blur(24px) saturate(145%);
+            backdrop-filter: blur(18px) saturate(135%);
+            -webkit-backdrop-filter: blur(18px) saturate(135%);
             background:
                 radial-gradient(circle at var(--mx, 50%) var(--my, 20%), rgba(255, 255, 255, 0.24), transparent 24%),
                 linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.1) 32%, rgba(255, 255, 255, 0.04)),
@@ -327,7 +369,7 @@
         }
 
         .hover-lift {
-            transition: transform 500ms var(--ease-standard), box-shadow 500ms var(--ease-standard), border-color 400ms ease;
+            transition: transform 700ms var(--ease-standard), box-shadow 700ms var(--ease-standard), border-color 500ms ease;
             transform-style: preserve-3d;
         }
 
@@ -500,7 +542,7 @@
             color: var(--text-soft);
             font-weight: 700;
             font-size: 0.92rem;
-            transition: background 250ms ease, color 250ms ease, transform 250ms ease;
+            transition: background 350ms ease, color 350ms ease, transform 350ms ease;
         }
 
         .nav-links a:hover {
@@ -528,7 +570,7 @@
             font-weight: 800;
             letter-spacing: -0.02em;
             cursor: pointer;
-            transition: transform 300ms var(--ease-bouncy), box-shadow 300ms var(--ease-standard), background 300ms ease, color 300ms ease;
+            transition: transform 450ms var(--ease-standard), box-shadow 450ms var(--ease-standard), background 350ms ease, color 350ms ease;
         }
 
         .btn:hover {
@@ -661,7 +703,7 @@
             height: 100%;
             object-fit: cover;
             transform: scale(1.08);
-            transition: transform 1.1s var(--ease-standard);
+            transition: transform 1.6s var(--ease-standard);
         }
 
         .hero-visual:hover .hero-media img {
@@ -917,7 +959,7 @@
             inset: 0;
             opacity: 0;
             transform: scale(1.08);
-            transition: opacity 550ms ease, transform 900ms var(--ease-standard);
+            transition: opacity 900ms ease, transform 1400ms var(--ease-standard);
         }
 
         .cinema-layer img {
@@ -948,7 +990,7 @@
             border-radius: 999px;
             background: rgba(17, 17, 17, 0.28);
             color: #fff;
-            backdrop-filter: blur(24px);
+            backdrop-filter: blur(18px);
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
 
@@ -958,7 +1000,7 @@
             border-radius: 50%;
             background: #fff;
             box-shadow: 0 0 16px rgba(255, 255, 255, 0.8);
-            animation: pulse 1.8s infinite;
+            animation: pulse 2.8s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -995,7 +1037,7 @@
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.22),
                 0 12px 32px rgba(255, 255, 255, 0.03);
-            transition: transform 350ms var(--ease-standard), background 350ms ease, border-color 350ms ease;
+            transition: transform 550ms var(--ease-standard), background 450ms ease, border-color 450ms ease;
         }
 
         .cinema-step.active {
@@ -1221,9 +1263,9 @@
 
         [data-reveal] {
             opacity: 0;
-            transform: translateY(36px) scale(0.98);
-            filter: blur(6px);
-            transition: opacity 900ms var(--ease-standard), transform 900ms var(--ease-standard), filter 650ms ease;
+            transform: translateY(24px) scale(0.995);
+            filter: blur(3px);
+            transition: opacity 1200ms var(--ease-standard), transform 1200ms var(--ease-standard), filter 900ms ease;
         }
 
         [data-reveal].is-visible {
@@ -1270,6 +1312,13 @@
                 padding-top: 14px;
             }
 
+            body::before,
+            body::after,
+            .page-shell::before,
+            .page-shell::after {
+                display: none;
+            }
+
             .nav {
                 border-radius: 34px;
                 padding: 14px;
@@ -1292,8 +1341,51 @@
                 padding: 24px;
             }
 
+            .hero {
+                min-height: auto;
+            }
+
             .hero-card {
                 min-height: auto;
+            }
+
+            .hero-visual,
+            .hero-card,
+            .cinema-stage {
+                border-radius: 30px;
+            }
+
+            .hero-media,
+            .cinema-visual {
+                border-radius: 28px;
+            }
+
+            .hero-media {
+                min-height: 260px;
+            }
+
+            .cinema-section {
+                min-height: auto;
+            }
+
+            .cinema-stage {
+                position: relative;
+                top: auto;
+                min-height: auto;
+                grid-template-columns: 1fr;
+            }
+
+            .cinema-visual {
+                min-height: 320px;
+            }
+
+            .cinema-overlay {
+                inset: auto 16px 16px 16px;
+            }
+
+            .play-pill {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
             }
 
             .hero-metrics,
@@ -1312,6 +1404,35 @@
 
             .brand-title {
                 white-space: normal;
+            }
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: clamp(2.9rem, 13vw, 4.2rem);
+            }
+
+            .hero-card,
+            .hero-visual,
+            .hero-floating,
+            .cinema-stage,
+            .footer,
+            .section-space {
+                padding: 20px;
+            }
+
+            .hero-actions,
+            .mini-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn,
+            .mini-actions .btn {
+                width: 100%;
+            }
+
+            .hero-metrics {
+                gap: 12px;
             }
         }
     </style>
@@ -1540,9 +1661,9 @@
             <section id="cinema" class="section cinema-section" aria-label="Scroll cinema">
                 <div class="cinema-stage glass" data-reveal>
                     <div class="cinema-visual hover-lift">
-                        <div class="cinema-layer active" data-scene="0"><img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 50vw" alt="Students supported by the trust" loading="lazy" decoding="async"></div>
-                        <div class="cinema-layer" data-scene="1"><img src="healthcare-1200.webp" srcset="healthcare-800.webp 800w, healthcare-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Healthcare workers in the field" loading="lazy" decoding="async"></div>
-                        <div class="cinema-layer" data-scene="2"><img src="farming-1200.webp" srcset="farming-800.webp 800w, farming-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Agricultural prosperity programs" loading="lazy" decoding="async"></div>
+                        <div class="cinema-layer active" data-scene="0"><img src="hero-900.webp" srcset="hero-600.webp 600w, hero-900.webp 900w" sizes="(max-width: 860px) 100vw, 50vw" alt="Students supported by the trust" width="900" height="1200" loading="lazy" decoding="async"></div>
+                        <div class="cinema-layer" data-scene="1"><img src="healthcare-1200.webp" srcset="healthcare-800.webp 800w, healthcare-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Healthcare workers in the field" width="1200" height="900" loading="lazy" decoding="async"></div>
+                        <div class="cinema-layer" data-scene="2"><img src="farming-1200.webp" srcset="farming-800.webp 800w, farming-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 50vw" alt="Agricultural prosperity programs" width="1200" height="900" loading="lazy" decoding="async"></div>
                         <div class="cinema-overlay">
                             <div class="play-pill"><span class="play-dot"></span> Shakti · Shiksha · Samriddhi</div>
                             <p style="color:#fff; max-width: 520px;">Together, these three pillars form a complete pathway to sustained social impact, transforming lives with compassion and commitment.</p>
@@ -1803,12 +1924,35 @@
         const cinemaLayers = document.querySelectorAll('[data-scene]');
         const cinemaSteps = document.querySelectorAll('[data-copy-step]');
         const hoverTargets = document.querySelectorAll('.hero-card, .hero-visual, .hero-floating, .cinema-visual, .cinema-stage');
-        const motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const compactViewportQuery = window.matchMedia('(max-width: 860px)');
+        const coarsePointerQuery = window.matchMedia('(pointer: coarse)');
         const hoverOk = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
         let parallaxFrame = false;
         let scrollFrame = false;
         let pointerX = window.innerWidth / 2;
         let pointerY = window.innerHeight / 2;
+
+        function syncExperienceMode() {
+            const liteMotion = reducedMotionQuery.matches || compactViewportQuery.matches || coarsePointerQuery.matches;
+            root.dataset.motion = liteMotion ? 'lite' : 'full';
+            root.dataset.cinema = compactViewportQuery.matches ? 'stack' : 'scroll';
+
+            if (liteMotion) {
+                root.style.setProperty('--parallax-x', '0px');
+                root.style.setProperty('--parallax-y', '0px');
+            }
+        }
+
+        function motionEnabled() {
+            return root.dataset.motion === 'full';
+        }
+
+        function cinemaInteractive() {
+            return root.dataset.cinema === 'scroll';
+        }
+
+        syncExperienceMode();
 
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -1825,7 +1969,7 @@
             if (node.dataset.done) return;
             node.dataset.done = 'true';
             const target = Number(node.dataset.count);
-            const duration = 1800;
+            const duration = 2400;
             let start = null;
 
             function frame(timestamp) {
@@ -1842,6 +1986,17 @@
 
         function updateCinema() {
             if (!cinemaSection) return;
+            if (!cinemaInteractive()) {
+                cinemaLayers.forEach((layer, index) => {
+                    layer.classList.toggle('active', index === 0);
+                });
+
+                cinemaSteps.forEach((step, index) => {
+                    step.classList.toggle('active', index === 0);
+                });
+                return;
+            }
+
             const rect = cinemaSection.getBoundingClientRect();
             const total = Math.max(cinemaSection.offsetHeight - window.innerHeight, 1);
             const progress = Math.min(Math.max(-rect.top / total, 0), 1);
@@ -1860,7 +2015,7 @@
         function syncOnScroll() {
             scrollFrame = false;
             updateCinema();
-            if (motionOk) paintParallax();
+            if (motionEnabled()) paintParallax();
         }
 
         window.addEventListener('scroll', () => {
@@ -1868,7 +2023,10 @@
             scrollFrame = true;
             requestAnimationFrame(syncOnScroll);
         }, { passive: true });
-        window.addEventListener('resize', updateCinema);
+        window.addEventListener('resize', () => {
+            syncExperienceMode();
+            updateCinema();
+        });
 
         function paintParallax() {
             parallaxFrame = false;
@@ -1879,23 +2037,24 @@
             root.style.setProperty('--parallax-y', `${(y + scroll * 18).toFixed(2)}px`);
         }
 
-        if (motionOk) {
-            window.addEventListener('pointermove', (event) => {
-                pointerX = event.clientX;
-                pointerY = event.clientY;
-                if (!parallaxFrame) {
-                    parallaxFrame = true;
-                    requestAnimationFrame(paintParallax);
-                }
-            });
+        window.addEventListener('pointermove', (event) => {
+            if (!motionEnabled()) return;
+            pointerX = event.clientX;
+            pointerY = event.clientY;
+            if (!parallaxFrame) {
+                parallaxFrame = true;
+                requestAnimationFrame(paintParallax);
+            }
+        });
 
+        if (motionEnabled()) {
+            paintParallax();
         }
 
-        paintParallax();
-
-        if (motionOk && hoverOk) {
+        if (hoverOk) {
             hoverTargets.forEach((card) => {
                 card.addEventListener('pointermove', (event) => {
+                    if (!motionEnabled()) return;
                     const rect = card.getBoundingClientRect();
                     const x = (event.clientX - rect.left) / rect.width - 0.5;
                     const y = (event.clientY - rect.top) / rect.height - 0.5;
